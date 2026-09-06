@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
@@ -53,6 +53,14 @@ describe("durable documents", () => {
 		await store.save(id, "Second", 1);
 		await writeFile(join(directory, `${id}.json`), "{broken");
 		expect((await store.read(id))?.body).toBe("First");
+		await store.save(id, "Recovered and edited", 1);
+		const damaged = (await readdir(directory)).find((file) =>
+			file.startsWith(`${id}.json.damaged-`),
+		);
+		expect(damaged).toBeDefined();
+		expect(await readFile(join(directory, damaged || ""), "utf8")).toBe(
+			"{broken",
+		);
 	});
 	it("retains unreadable originals and rejects traversal", async () => {
 		const id = randomUUID();

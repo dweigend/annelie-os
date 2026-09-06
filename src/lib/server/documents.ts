@@ -124,8 +124,10 @@ export class DocumentStore {
 					createdAt: current?.createdAt ?? now,
 					updatedAt: now,
 				};
-				if (current)
+				if (current) {
+					await this.preserveDamagedPrimary(path, id);
 					await this.atomicWrite(`${path}.bak`, JSON.stringify(current));
+				}
 				await this.atomicWrite(path, JSON.stringify(next));
 				return next;
 			});
@@ -135,6 +137,22 @@ export class DocumentStore {
 		} finally {
 			if (this.writes.get(id) === pending) this.writes.delete(id);
 		}
+	}
+	private async preserveDamagedPrimary(path: string, id: string) {
+		let original: string;
+		try {
+			original = await readFile(path, "utf8");
+		} catch (error) {
+			if ((error as NodeJS.ErrnoException).code === "ENOENT") return;
+			throw error;
+		}
+		try {
+			const record: unknown = JSON.parse(original);
+			if (isDocument(record) && record.id === id) return;
+		} catch {
+			/* Keep damaged bytes available for manual recovery. */
+		}
+		await this.atomicWrite(`${path}.damaged-${randomUUID()}`, original);
 	}
 }
 const dataDirectory =
