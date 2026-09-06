@@ -14,11 +14,13 @@ preserve concurrent changes, and make a checkpoint before substantial work.
 
 Target the old MacBook Air only. Prioritize David's supplied mockups and
 explicit UI feedback over generic interface conventions. Do not run mobile
-test matrices. Texten must follow the latest feedback: a blank white page, Courier Prime,
-a white writing area and one small document icon that directly opens old texts.
+test matrices. Texten must follow the latest feedback: a ring-bound notebook with almost-white paper, Courier Prime,
+and one small document icon that directly opens old texts.
 Every program, including Texten, must open in a window with a slim title bar
 and an always-visible X to close it and return to desktop.
-Remove ring binding, paper texture, wallpaper, rounded page corners and shadows. Remove permanent sidebar, title field,
+Restore the supplied notebook-paper.png as the explicit decorative exception,
+including its ring binding, subtle texture, corners and shadow. Keep the binding
+height stable while resizing. Remove permanent sidebar, title field,
 toolbar and status counter from the writing area. Keep the shared title bar
 and X. Remove the desktop heading and support freely draggable icons with
 remembered positions; dragging must not launch a program.

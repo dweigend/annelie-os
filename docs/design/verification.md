@@ -4,10 +4,10 @@ Date: 2026-09-06. Scope: design-system delivery for the old MacBook Air.
 
 ## Visual review
 
-The current editor follows David's latest explicit simplification: a blank white
-page, Courier Prime and one small document icon. Rings, textured paper, wallpaper,
-page shadows and rounded page corners were removed. Document selection opens
-directly from the icon. New documents contain no example text.
+David explicitly restored the ring notebook as an exception to the minimal UI.
+The existing notebook-paper.png supplies the binding, subtle texture and paper
+corners. Courier Prime, one small document icon, window X and resizing remain.
+Document selection opens directly from the icon; new documents start empty.
 
 The home view retains the supplied lake/app/clock direction with icon-only
 launchers. No mobile layouts were added.

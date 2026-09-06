@@ -79,7 +79,7 @@ the lower-contrast divider token is only for decorative separation.
 
 Keep text on quiet, high-contrast areas. Leave the open sky free of greeting text,
 cards and subtitles. Program launchers show only their icons, without captions or
-label pills. Their accessible names remain available to assistive technology. Editor text sits on plain white. Do not add
+label pills. Their accessible names remain available to assistive technology. Editor text sits on quiet, almost-white notebook paper. Do not add
 containers to solve visual hierarchy that the mockups already resolve with
 space. See [measured semantic pairs](contrast.md); raster surfaces still need
 a direct visual comparison at the actual laptop size.
@@ -100,7 +100,7 @@ look explicitly requested in the new notebook reference.
 | Body | 18 px | 1.5 | Short explanations, document list |
 | Label | 20 px | 1.25 | App names and window title |
 | Section | 28 px | 1.2 | Dialog/empty-state headings |
-| Writing | 36 px | 1.6 | Courier Prime on the white page |
+| Writing | 36 px | 1.6 | Courier Prime on the notebook page |
 | Display | 48 px | 1.2 | Main home heading |
 | Learning task | 56 px | 1.2 | Prominent arithmetic/letter task |
 
@@ -200,16 +200,19 @@ mode hides that header. Keep editor drafts alive when the window is closed and
 reopened. The current preview retains its iframe for this purpose; persistent
 production document storage remains a separate implementation milestone.
 
-### Texten — a blank white page
+### Texten — a ring-bound writing page
 
-David's latest explicit feedback supersedes the decorative details in source 8.
-The editor content is a flat white page inside the shared program window:
-no ring binding, texture, inner frame or decorative paper shadow. Start with an empty document, without example
+David explicitly restored the ring notebook as the editor's decorative exception.
+Reuse `static/design/notebook-paper.png`: muted brass rings across the top,
+almost-white textured paper, rounded corners and its modest baked shadow.
+The notebook sits inside the shared resizable program window. Start with an empty document, without example
 text or placeholder copy. Use locally bundled Courier Prime Regular at 36 px,
 line height 1.6, dark charcoal text and a normal live caret. The typewriter
 character comes from the typography alone.
 
-The page fills the window below its slim title bar. Give writing 8% horizontal margins, 96 px above
+The page fills the window below its slim title bar. Keep the binding in a fixed-height
+upper image slice so vertical resizing does not elongate the rings. Give writing
+8% horizontal margins, 128 px above
 and 48 px below. Show one small 20 px document icon at the upper right, within
 an invisible 48 px click target, with the accessible name Meine Texte.
 It directly opens the document list; do not require another menu step.

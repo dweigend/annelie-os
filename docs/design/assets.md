@@ -16,7 +16,7 @@ used as a production UI background or cropped into a sprite.
 | 5 | `docs/design/references/05-app-icon-family.png` | Sculpted app icon family |
 | 6 | `docs/design/references/06-clock-study.png` | Clock material, colors and geometry study |
 | 7 | `docs/design/references/07-cat-character.png` | Character identity and poses |
-| 8 | `docs/design/references/08-notebook-editor.png` | Historical editor reference; later simplified to white |
+| 8 | `docs/design/references/08-notebook-editor.png` | Selected ring-notebook exception; restored by explicit feedback |
 
 Text inside supplied pictures is reference content, not an independent feature
 request. Preserve these files as evidence; later corrections get new filenames.
@@ -31,7 +31,7 @@ request. Preserve these files as evidence; later corrections get new filenames.
 | `icon-math.png` | Rechnen launcher, counting discs | Source 5 and text icon / [prompt](prompts/icon-math.txt) |
 | `icon-letters.png` | Schreibspiel launcher, ABC | Source 5 and text icon / [prompt](prompts/icon-letters.txt) |
 | `cat-peek.png` | Unused character reference | Source 7 / [prompt](prompts/cat-peek.txt) |
-| `notebook-paper.png` | Unused historical notebook surface | Source 8 / [prompt](prompts/notebook-paper.txt) |
+| `notebook-paper.png` | Active ring-bound editor surface | Source 8 / [prompt](prompts/notebook-paper.txt) |
 
 The official whale and seven current startup backgrounds are documented in
 [startup.md](startup.md), with every source and prompt mapped in

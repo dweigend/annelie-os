@@ -195,10 +195,11 @@ implements these interactions in `home.html` and `desktop-icons.js`.
 
 ### 4. Complete the editor
 
-Follow the latest editor feedback: a blank white page, typewriter text and one
+Follow the latest editor feedback: the ring-bound notebook as a deliberate
+decorative exception, typewriter text and one
 small document icon opening the text list directly. Place this writing area
-inside the shared window with an always-visible X. Omit rings, texture, wallpaper
-and shadows. Keep document controls inside that temporary panel, with no permanent sidebar,
+inside the shared resizable window with an always-visible X. Reuse the supplied
+notebook artwork with binding and subtle paper texture. Keep document controls inside that temporary panel, with no permanent sidebar,
 title field, formatting toolbar or status row. Implement document operations
 and persistence without adding resting UI clutter. Verify writing,
 switching documents, navigating home, refresh, server restart, browser reopen,
