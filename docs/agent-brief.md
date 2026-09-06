@@ -60,3 +60,12 @@ Deliver the working local preview, reproducible setup and startup commands,
 program integration documentation, test results and committed meaningful units.
 State any unverified behavior explicitly. Leave device-specific Ubuntu setup
 and deployment to the separate device repository and follow-up milestone.
+
+## Independent-app window ownership
+
+Follow docs/app-contract.md: the shell owns the 32 px title bar, always-visible X
+and resize handles; games from separate loopback ports occupy only the iframe
+below. X closes without waiting for game cooperation, stops the embedded session
+and returns to desktop; it does not stop the separate server. Preserve progress
+during play and keep iframe identity stable while resizing. The latest source
+review and concrete Letter-Lerner companion work are recorded in that contract.

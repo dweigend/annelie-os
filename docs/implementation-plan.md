@@ -6,7 +6,7 @@ application implementation and editor scope confirmation remain next.
 ## Outcome
 
 Deliver a locally runnable Annelie OS shell and a complete simple text editor.
-A child can open a program, write and recover saved texts, and return home
+A child can open a program, write and recover saved texts, and close its window to return home
 through one coherent interface. Learning games run independently and can be
 installed, updated and restarted without rebuilding the shell.
 
@@ -70,7 +70,7 @@ flowchart TD
 
 Use a borderless cross-origin iframe below the persistent shell as the initial
 integration choice. Each game owns its page and assets; the shell owns home
-navigation and loading/error states. Test this choice with the actual game
+the window X, resize handles and loading/error states. Test this choice with the actual game
 before investing in the full shell. Different ports retain separate origins.
 The shell cannot style or inspect a cross-origin game DOM, so embedded mode
 and shared visual tokens must be implemented explicitly in each game.
@@ -164,7 +164,10 @@ Confirm remaining editor scope proposals before implementing persistence.
 
 Start the real Letter-Lerner and a minimal shell on separate loopback ports.
 Verify embedding, child-mode navigation, input focus, local audio, storage,
-resize, reload and stopping/restarting the game. Keep home usable after a game
+resize without iframe reload, immediate X closure, silence after closure and
+progress restoration when reopening. Check stopping/restarting the game server.
+The window X belongs to the shell outside the cross-origin iframe; it does not
+depend on a game callback. See the current source review in the app contract. Keep home usable after a game
 failure. Make only required companion changes in Letter-Lerner, preserving its
 standalone mode and documenting them in that repository.
 

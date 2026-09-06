@@ -48,3 +48,7 @@ grip. Keep the X reachable and content alive throughout resizing.
 
 The editor is the explicit visual exception: restore notebook-paper.png with
 its ring binding and subtle paper texture. Keep Courier Prime and minimal controls.
+
+For external programs, the shell owns the window header, X and resize handles
+outside the cross-origin iframe. Closing must not depend on game readiness or
+callbacks. Game servers remain independent and running after the window closes.
