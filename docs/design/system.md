@@ -175,7 +175,10 @@ program icons and the calm landscape. Retain the character artwork as an unused
 reference asset; do not place it elsewhere automatically.
 
 The analog clock is a real rendered component, not one of the supplied raster
-clock poses. Hour angle = `(hours % 12) * 30 + minutes * 0.5`; minute angle =
+clock poses. David explicitly requested CSS depth: an ivory dial over a softly
+beveled cream/brass rim, upper-left highlights, a grounded outer shadow and
+small shadows below the hands and center pin. Use static CSS gradients and
+shadows on the existing SVG; do not add a raster clock, animation or 3D runtime. Hour angle = `(hours % 12) * 30 + minutes * 0.5`; minute angle =
 `minutes * 6`, measured clockwise from twelve. No second hand or ticking. A
 screen-reader label states the current local time; do not announce every tick.
 

@@ -421,12 +421,27 @@ img {
 	width: 172px;
 	height: 172px;
 	flex: 0 0 auto;
-	filter: drop-shadow(0 4px 6px rgb(42 55 64 / 16%));
+	border-radius: 50%;
+	background:
+		radial-gradient(
+			circle closest-side,
+			#fffdf5 0%,
+			#fff8e8 85%,
+			#f0e4cc 89%,
+			transparent 90%
+		),
+		linear-gradient(135deg, #fff7e5 0%, #eedabb 30%, #c3a47c 72%, #a78965 100%);
+	box-shadow:
+		inset 2px 3px 3px rgb(255 255 255 / 85%),
+		inset -2px -3px 3px rgb(111 81 43 / 28%),
+		0 2px 1px #9b805e,
+		0 5px 3px rgb(26 35 46 / 20%),
+		0 12px 20px rgb(26 35 46 / 25%);
 }
 .aos-clock-rim {
-	fill: var(--aos-color-clock-face);
-	stroke: var(--aos-color-clock-rim);
-	stroke-width: 5;
+	fill: transparent;
+	stroke: rgb(133 104 64 / 25%);
+	stroke-width: 0.7;
 }
 .aos-clock-number {
 	fill: var(--aos-color-clock-ink);
@@ -443,14 +458,19 @@ img {
 	stroke: var(--aos-color-clock-hour);
 	stroke-width: 7;
 	stroke-linecap: round;
+	filter: drop-shadow(0 1.5px 1px rgb(86 37 32 / 30%));
 }
 .aos-clock-minute {
 	stroke: var(--aos-color-clock-minute);
 	stroke-width: 6;
 	stroke-linecap: round;
+	filter: drop-shadow(0 1.5px 1px rgb(25 52 74 / 30%));
 }
 .aos-clock-pin {
 	fill: var(--aos-color-clock-pin);
+	stroke: #ffe8a1;
+	stroke-width: 0.8;
+	filter: drop-shadow(0 1.5px 1px rgb(111 81 43 / 40%));
 }
 .aos-launchers {
 	display: flex;
