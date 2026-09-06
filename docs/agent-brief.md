@@ -8,7 +8,8 @@ has been launched during design-system preparation.
 ## Task
 
 Complete the locally runnable Annelie OS shell and simple text editor in this
-repository. Follow `AGENTS.md`, `docs/implementation-plan.md`, and
+repository. Start with `docs/readiness-report.md`. Follow `AGENTS.md`,
+`docs/implementation-plan.md`, and
 `docs/app-contract.md`. Communicate in German. Inspect the current checkout,
 preserve concurrent changes, and make a checkpoint before substantial work.
 

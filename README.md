@@ -12,6 +12,8 @@ The production shell/editor have not been implemented or deployed yet.
 
 ## Start here
 
+- [Readiness report and next build steps](docs/readiness-report.md)
+
 - [Implementation plan](docs/implementation-plan.md)
 - [Independent app contract](docs/app-contract.md)
 - [Design system and visual decision](docs/design/README.md)
