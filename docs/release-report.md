@@ -37,6 +37,20 @@ because the required button, textarea and dialog patterns already exist.
 
 Screenshots: [editor](qa/editor-production.jpg), [desktop](qa/desktop-production.jpg).
 
+## Installation artifact
+
+The administration Mac holds the complete offline bundle at
+`../annelies_computer/build/annelie-os-1.0.0-linux-x64.tar.gz` (101 MiB).
+Its SHA-256 is
+`07fed40dddcee7ae50ac6b574198367aeefb14687930f44bf203fc94c0ff6efb`.
+The packaged revisions are Annelie OS `7ca3dd631bae`, Letter-Lerner
+`6d426e5e088e`, and device installer `dd8b3a6db543`.
+All internal artifact checksums passed after final assembly.
+
+Application source is published on the Annelie OS main branch. The independent
+game integration is published as [draft pull request 14](https://github.com/dweigend/letter-lerner/pull/14);
+the bundle already contains that integration without requiring a merge.
+
 ## Verification evidence
 
 The application passes Biome/Prettier, Svelte/TypeScript checks with no warnings,
