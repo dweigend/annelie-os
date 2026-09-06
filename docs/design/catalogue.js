@@ -21,6 +21,8 @@ function openEditor() {
 for (const button of document.querySelectorAll("[data-start-writing]"))
 	button.addEventListener("click", openEditor);
 function updateAppState() {
+	document.querySelector("#sample-app-title").textContent =
+		appState.value === "empty" ? "Texten" : "Schreibspiel";
 	for (const state of ["unavailable", "loading", "empty"])
 		document.querySelector(`#app-${state}`).hidden = appState.value !== state;
 }

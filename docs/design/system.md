@@ -267,7 +267,7 @@ The clock updates at minute-level frequency, without a ticking second hand.
 
 | Condition | German copy | Available action / rule |
 | --- | --- | --- |
-| No documents | Platz für deine erste Geschichte. | Neuer Text |
+| No documents | No illustration or explanatory text | Only Neuer Text with a small plus icon |
 | App starting | Four blinking dots; no visible text | Window X remains active |
 | App unavailable / timed out | Das Spiel ist gerade nicht bereit. | Noch einmal; Zuhause |
 | App absent | Dieses Spiel ist noch nicht eingerichtet. | Zuhause; no installer shown to child |
