@@ -3,6 +3,12 @@
 Date: 2026-09-06. Status: production applications installed and verified running
 on the MacBook Air at 18:23; new desktop and editor visually verified afterward.
 
+The user subsequently confirmed that everything works and the correct version
+loads. A final SSH check confirmed both production services remain active and
+enabled, with both health endpoints responding successfully. The old test-site
+files and disabled unit are still present; the prepared cleanup remains optional
+for operation but outstanding under the user's removal request.
+
 ## MacBook deployment result
 
 - Annelie OS `7ca3dd631bae` runs on loopback port 8765.
