@@ -2,8 +2,7 @@
 const writing = document.querySelector("#notebook-text");
 const menu = document.querySelector("#notebook-menu");
 const list = document.querySelector("#notebook-documents");
-const documentToggle = document.querySelector("#notebook-documents-toggle");
-const drafts = new Map([["first", "Hallo Welt"]]);
+const drafts = new Map([["first", ""]]);
 let activeDocument = "first";
 let sequence = 0;
 
@@ -34,12 +33,6 @@ document.querySelector("#notebook-new").addEventListener("click", () => {
 	writing.value = "";
 	menu.open = false;
 	writing.focus();
-});
-documentToggle.addEventListener("click", () => {
-	const expanded = documentToggle.getAttribute("aria-expanded") !== "true";
-	documentToggle.setAttribute("aria-expanded", String(expanded));
-	list.hidden = !expanded;
-	if (expanded) renderDocuments();
 });
 menu.addEventListener("toggle", () => {
 	if (menu.open) renderDocuments();

@@ -14,8 +14,9 @@ preserve concurrent changes, and make a checkpoint before substantial work.
 
 Target the old MacBook Air only. Prioritize David's supplied mockups and
 explicit UI feedback over generic interface conventions. Do not run mobile
-test matrices. Texten must follow source 8: a ring-bound notebook, Courier Prime,
-only text/caret and one small menu button. Remove permanent sidebar, title field,
+test matrices. Texten must follow the latest feedback: a blank white page, Courier Prime,
+only text/caret and one small document icon that directly opens old texts.
+Remove ring binding, paper texture, wallpaper, rounded page corners and shadows. Remove permanent sidebar, title field,
 toolbar, status counter and window header from the resting editor.
 
 First read the recorded visual decision and reproduce it consistently across

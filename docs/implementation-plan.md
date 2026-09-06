@@ -178,8 +178,9 @@ writing. Match the selected mockups at the old MacBook Air design viewport of
 
 ### 4. Complete the editor
 
-Follow the new notebook editor reference: paper, typewriter text and one
-menu button. Keep document controls inside that menu, with no permanent sidebar,
+Follow the latest editor feedback: a blank white page, typewriter text and one
+small document icon opening the text list directly. Omit rings, texture, wallpaper
+and shadows. Keep document controls inside that temporary panel, with no permanent sidebar,
 title field, formatting toolbar or status row. Implement document operations
 and persistence without adding resting UI clutter. Verify writing,
 switching documents, navigating home, refresh, server restart, browser reopen,

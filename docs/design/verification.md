@@ -4,19 +4,13 @@ Date: 2026-09-06. Scope: design-system delivery for the old MacBook Air.
 
 ## Visual review
 
-The latest notebook view was compared with source 8 at 1440 × 900. It retains
-the ring binding, warm paper, lake backdrop, typewriter text, live caret and
-one small circular menu button. The former sidebar, title input, permanent
-header, toolbar and character count have been removed from the resting view.
+The current editor follows David's latest explicit simplification: a blank white
+page, Courier Prime and one small document icon. Rings, textured paper, wallpaper,
+page shadows and rounded page corners were removed. Document selection opens
+directly from the icon. New documents contain no example text.
 
-The home view follows the supplied lake/app/clock references. Its greeting box,
-subtitle and label pills were removed in response to David's minimalism feedback.
-App artwork preserves its original aspect ratios and transparency.
-
-The notebook uses a generated blank asset derived from the source, rather than
-a screenshot containing baked text or controls. The wider laptop composition
-fits the same design into the actual landscape target. Paper and ring geometry
-are not claimed to be a pixel-identical extraction from the source image.
+The home view retains the supplied lake/app/clock direction with icon-only
+launchers. No mobile layouts were added.
 
 ## Relevant checks
 

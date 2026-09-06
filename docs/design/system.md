@@ -80,7 +80,7 @@ the lower-contrast divider token is only for decorative separation.
 
 Keep text on quiet, high-contrast areas. The home greeting is plain text over the open sky, with no greeting card
 or subtitle. Program launchers show only their icons, without captions or
-label pills. Their accessible names remain available to assistive technology. The notebook text overlays the subtle cream paper asset. Do not add
+label pills. Their accessible names remain available to assistive technology. Editor text sits on plain white. Do not add
 containers to solve visual hierarchy that the mockups already resolve with
 space. See [measured semantic pairs](contrast.md); raster surfaces still need
 a direct visual comparison at the actual laptop size.
@@ -101,7 +101,7 @@ look explicitly requested in the new notebook reference.
 | Body | 18 px | 1.5 | Short explanations, document list |
 | Label | 20 px | 1.25 | App names and window title |
 | Section | 28 px | 1.2 | Dialog/empty-state headings |
-| Writing | 36 px | 1.6 | Courier Prime on the notebook page |
+| Writing | 36 px | 1.6 | Courier Prime on the white page |
 | Display | 48 px | 1.2 | Main home heading |
 | Learning task | 56 px | 1.2 | Prominent arithmetic/letter task |
 
@@ -181,37 +181,31 @@ inside the remaining viewport. Internal back navigation belongs to the game;
 home navigation always belongs to the shell. Preserve focus when entering and
 returning, and put it back on the originating launcher after leaving an app.
 
-### Texten — the notebook reference
+### Texten — a blank white page
 
-Source 8 is authoritative for the editor. Also confirmed in the related task
-**Mockups fürs Lernbetriebssystem**: only paper, letters, typewriter typography
-and one small menu button. The ring-bound notebook replaces the previous
-application-window/editor-with-sidebar proposal.
+David's latest explicit feedback supersedes the decorative details in source 8.
+The editor is a flat white page: no ring binding, texture, wallpaper, frame,
+rounded paper corners or shadow. Start with an empty document, without example
+text or placeholder copy. Use locally bundled Courier Prime Regular at 36 px,
+line height 1.6, dark charcoal text and a normal live caret. The typewriter
+character comes from the typography alone.
 
-Use the transparent `notebook-paper.png` over the same lake wallpaper. At the
-1440 × 900 design target the notebook is approximately 1116 × 836 px, centered.
-Keep its aspect ratio, the rings and subtle paper texture. Text starts about
-9% from the left and 20% from the top of the notebook; the menu sits near the
-upper-right edge, below the rings. Use Courier Prime Regular at 36 px, line
-height 1.6, charcoal text, and a normal live caret.
+The page fills the viewport. Give writing 8% horizontal margins, 96 px above
+and 48 px below. Show one small 20 px document icon at the upper right, within
+an invisible 48 px click target, with the accessible name Meine Texte.
+It directly opens the document list; do not require another menu step.
+New text and home actions remain inside that temporary panel. Use a flat white
+panel, fine gray border, minimal rounding and no shadow.
 
-In the resting state show **only** the notebook, text/caret and menu button.
 No permanent title, sidebar, document list, home button, toolbar, save label,
-character count or explanatory UI copy. The native textarea has no visible
-box or focus halo; the caret marks the writing position. Menu controls retain
-clear keyboard focus.
-
-The 52 px circular menu control reveals Zuhause, Neuer Text and Meine Texte.
-Document selection and any document naming controls live inside this menu.
-Do not turn the small menu into a second persistent panel. Close it when an
-operation completes or when the user returns to writing. Escape closes it.
+character count or explanatory UI copy. Close the document panel after selection,
+when returning to writing or on Escape. Keep visible keyboard focus on controls.
 Normal saved status stays quiet; a genuine save failure may surface a concise
-recovery notice, but never clear the writing or pretend that it is saved.
+recovery notice without clearing the draft or falsely claiming success.
 
 The standalone design preview is [editor.html](editor.html). Its text is live
-but held in memory only. It demonstrates appearance and menu behavior, not
-production persistence. Plain text is the selected interaction style; rich-text
-formatting and quick-note tools are not added.
+but held in memory only. It demonstrates appearance and document selection,
+not production persistence. Plain text is the selected interaction style.
 
 ### Target hardware and layout
 
@@ -220,8 +214,8 @@ Optimize for the existing old MacBook Air in landscape Chrome kiosk mode. Use
 kiosk viewport during device integration. There is no mobile product scope.
 Do not spend implementation time on phone layouts or mobile test matrices.
 
-Scale the notebook as one proportional surface to fit the laptop display,
-retain a comfortable outer margin, and preserve the minimal composition.
+Let the white writing surface fill the laptop display and retain comfortable
+text margins. Keep functional elements flat and free of extra decoration.
 Avoid WebGL, animated blur, a full window manager or continuous effects. Use
 static art, one active application, local fonts and restrained interaction.
 The clock updates at minute-level frequency, without a ticking second hand.

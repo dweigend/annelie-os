@@ -866,40 +866,30 @@ img {
 	font-display: swap;
 }
 
-/* The notebook is the editor surface; its controls stay inside one disclosure. */
+/* Writing stays on a plain white surface; documents appear only on request. */
 .aos-notebook-scene {
 	min-height: 100svh;
-	background: var(--aos-wallpaper) center / cover fixed;
-	display: grid;
-	place-items: center;
+	background: #fff;
 }
 .aos-notebook {
 	position: relative;
-	width: min(1120px, calc(133.5svh - 85px), calc(100vw - 120px));
-	aspect-ratio: 1450 / 1086;
-}
-.aos-notebook-paper {
-	position: absolute;
-	inset: 0;
 	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	pointer-events: none;
+	height: 100svh;
+	background: #fff;
 }
 .aos-notebook-text {
 	position: absolute;
-	inset: 20% 9% 9%;
-	width: 82%;
-	height: 71%;
+	inset: 96px 8% 48px;
+	width: 84%;
+	height: calc(100% - 144px);
 	resize: none;
 	border: 0;
 	border-radius: 0;
 	padding: 0;
 	background: transparent;
-	color: #41433f;
-	caret-color: #41433f;
+	color: #303030;
+	caret-color: #303030;
 	font: 400 var(--aos-text-writing) / 1.6 var(--aos-font-writing);
-	letter-spacing: 0.4px;
 	overflow-y: auto;
 }
 .aos-notebook-text:focus-visible {
@@ -908,17 +898,17 @@ img {
 }
 .aos-notebook-menu {
 	position: absolute;
-	top: 12%;
-	right: 8%;
+	top: 24px;
+	right: 24px;
 	z-index: var(--aos-layer-notice);
 }
 .aos-notebook-menu summary {
 	list-style: none;
-	width: 52px;
-	height: 52px;
-	border-radius: 50%;
-	background: #e9e3d6;
-	color: #535c60;
+	width: 48px;
+	height: 48px;
+	border-radius: 4px;
+	background: transparent;
+	color: #606060;
 	display: grid;
 	place-items: center;
 	cursor: pointer;
@@ -927,27 +917,31 @@ img {
 	display: none;
 }
 .aos-notebook-menu summary:hover {
-	background: #dfd7c7;
+	background: #f5f5f5;
 }
 .aos-notebook-menu summary .aos-icon {
-	width: 26px;
-	height: 26px;
+	width: 20px;
+	height: 20px;
 }
 .aos-notebook-menu-panel {
 	position: absolute;
 	right: 0;
-	top: 64px;
+	top: 52px;
 	width: 272px;
-	padding: 12px;
-	background: var(--aos-color-surface);
-	border: 1px solid var(--aos-color-border);
-	border-radius: var(--aos-radius-control);
-	box-shadow: var(--aos-shadow-window);
+	padding: 8px;
+	background: #fff;
+	color: #303030;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 	display: grid;
 	gap: 4px;
 }
 .aos-notebook-menu-panel .aos-button {
 	justify-content: start;
+	border-radius: 4px;
+	box-shadow: none;
+	color: #303030;
+	font-weight: 500;
 }
 .aos-notebook-menu-panel small {
 	padding: 12px;
@@ -972,7 +966,7 @@ img {
 	border: 0;
 	width: 100%;
 	height: 790px;
-	border-radius: 24px;
+	border-radius: 0;
 	display: block;
 }
 .aos-home-scene {

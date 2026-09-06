@@ -21,10 +21,10 @@ Start here:
 - [Assets, sources and full generation prompts](assets.md)
 - [Contrast results](contrast.md) and [verification](verification.md)
 
-Latest UI refinement: source 8 defines the editor as a ring-bound notebook
-with Courier Prime and a single menu button. The resting editor has no
+Latest UI refinement: explicit feedback supersedes the ring-bound reference.
+The editor is a blank white page with Courier Prime and a tiny document icon. The resting editor has no
 sidebar, title field or permanent status row. Target the old MacBook Air only;
-mobile layouts are outside scope. Open [the notebook preview](editor.html) or
+mobile layouts are outside scope. Open [the white-page preview](editor.html) or
 [the minimal home preview](home.html) for direct mockup comparison.
 
 The product labels are Annelies Computer / Texten / Rechnen / Schreibspiel.
