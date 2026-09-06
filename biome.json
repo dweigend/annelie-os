@@ -1,0 +1,19 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.5.3/schema.json",
+	"files": {
+		"includes": [
+			"**",
+			"!node_modules",
+			"!.svelte-kit",
+			"!build",
+			"!dist",
+			"!docs",
+			"!static",
+			"!design",
+			"!bun.lock",
+			"!**/*.svelte"
+		]
+	},
+	"formatter": { "enabled": true, "indentStyle": "tab" },
+	"linter": { "enabled": true, "rules": { "recommended": true } }
+}

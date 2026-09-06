@@ -1429,3 +1429,103 @@ dialog.aos-resizable-window {
 .is-resizing {
 	user-select: none;
 }
+
+/* Production shell reuses the approved design specimens. */
+html:has(.os-desktop),
+body:has(.os-desktop),
+#app:has(.os-desktop) {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.os-desktop {
+	min-height: 0;
+}
+.os-notebook {
+	height: 100%;
+	min-height: 0;
+}
+.os-notebook-menu-panel {
+	max-height: calc(100vh - 240px);
+	overflow: auto;
+}
+.aos-notebook-menu-panel .os-new-document {
+	color: #fff;
+}
+.os-save-notice {
+	position: absolute;
+	z-index: 4;
+	bottom: 20px;
+	left: 8%;
+	right: 8%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 8px 16px;
+	background: #fff8e8;
+	color: #303030;
+	border: 1px solid #cdbd99;
+	font-size: 16px;
+}
+.os-save-notice .aos-button {
+	min-height: 40px;
+	font-size: 16px;
+	padding: 8px 12px;
+}
+.os-external {
+	position: relative;
+	min-height: 0;
+	background: #fffdf9;
+}
+.os-external[data-phase="loading"] iframe {
+	visibility: hidden;
+}
+.os-loading,
+.os-empty {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 28px;
+}
+.os-appearance summary {
+	list-style: none;
+	cursor: pointer;
+}
+.os-appearance summary::-webkit-details-marker {
+	display: none;
+}
+.os-backgrounds {
+	position: absolute;
+	bottom: 76px;
+	left: 24px;
+	z-index: 3;
+	display: grid;
+	grid-template-columns: repeat(4, 100px);
+	gap: 8px;
+	padding: 12px;
+	background: #fffdf9;
+	border: 1px solid #d9dad5;
+	border-radius: 12px;
+	box-shadow: 0 8px 28px #19374f26;
+}
+.os-backgrounds button {
+	padding: 0;
+	border: 2px solid transparent;
+	border-radius: 6px;
+	overflow: hidden;
+	background: none;
+	cursor: pointer;
+}
+.os-backgrounds button[aria-pressed="true"] {
+	border-color: #19699c;
+}
+.os-backgrounds img {
+	display: block;
+	width: 100%;
+	height: 60px;
+	object-fit: cover;
+}
