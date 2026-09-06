@@ -70,3 +70,16 @@ opening a window; reloading retained that position. Writing Hallo Welt,
 closing Texten with X and reopening retained the text. The window has a single
 header and no duplicate editor chrome. These checks cover the local design
 preview, not installed learning games or production document persistence.
+
+## Window resizing update
+
+The shared window and standalone editor now resize from eight edge/corner
+handles using pointer capture. The bottom-right grip also supports arrow keys.
+Sizing reuses existing app.css rules, with no inline styles, dependency or
+iframe reload. Geometry lasts for the current page visit.
+
+At 1440 × 900, direct dragging verified diagonal shrinking, left-edge and
+top-edge resizing with the opposite edge fixed, and the 480 × 320 minimum.
+The single title bar, close X and document control remain visible. Repository
+design checks and lint pass; the stylesheet retains six pre-existing specificity
+warnings from unrelated selectors. No mobile or target-device checks were run.

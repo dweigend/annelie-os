@@ -1,5 +1,6 @@
 import { initializeClock } from "./clock.js";
 import { initializeDesktopIcons } from "./desktop-icons.js";
+import { initializeWindowResize } from "./window-resize.js";
 
 const programWindow = document.querySelector("#program-window");
 const editorFrame = document.querySelector("#editor-frame");
@@ -33,4 +34,5 @@ editorFrame.addEventListener("load", () => {
 closeButton.addEventListener("click", () => programWindow.close());
 programWindow.addEventListener("close", () => activeLauncher?.focus());
 initializeClock();
+initializeWindowResize(programWindow);
 initializeDesktopIcons(openProgram);

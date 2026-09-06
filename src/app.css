@@ -1277,3 +1277,96 @@ img {
 	border: 0;
 	display: block;
 }
+
+.aos-resizable-window {
+	position: relative;
+}
+dialog.aos-resizable-window {
+	position: fixed;
+}
+.aos-window-sized {
+	position: fixed;
+	margin: 0;
+	right: auto;
+	bottom: auto;
+	max-width: none;
+	max-height: none;
+}
+.aos-resize-handle {
+	position: absolute;
+	z-index: 5;
+	touch-action: none;
+	user-select: none;
+	background: transparent;
+	border: 0;
+	padding: 0;
+}
+.aos-resize-n,
+.aos-resize-s {
+	left: 16px;
+	right: 16px;
+	height: 6px;
+	cursor: ns-resize;
+}
+.aos-resize-e,
+.aos-resize-w {
+	top: 16px;
+	bottom: 16px;
+	width: 6px;
+	cursor: ew-resize;
+}
+.aos-resize-ne,
+.aos-resize-nw,
+.aos-resize-se,
+.aos-resize-sw {
+	width: 16px;
+	height: 16px;
+}
+.aos-resize-ne,
+.aos-resize-sw {
+	cursor: nesw-resize;
+}
+.aos-resize-nw,
+.aos-resize-se {
+	cursor: nwse-resize;
+}
+.aos-resize-n,
+.aos-resize-ne,
+.aos-resize-nw {
+	top: 0;
+}
+.aos-resize-s,
+.aos-resize-se,
+.aos-resize-sw {
+	bottom: 0;
+}
+.aos-resize-e,
+.aos-resize-ne,
+.aos-resize-se {
+	right: 0;
+}
+.aos-resize-w,
+.aos-resize-nw,
+.aos-resize-sw {
+	left: 0;
+}
+.aos-resize-se::after {
+	content: "";
+	position: absolute;
+	inset: 3px;
+	background: repeating-linear-gradient(
+		135deg,
+		transparent 0 3px,
+		#8c9399 3px 4px
+	);
+	clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+.aos-resize-se:focus-visible {
+	outline-offset: -3px;
+}
+.is-resizing iframe {
+	pointer-events: none;
+}
+.is-resizing {
+	user-select: none;
+}

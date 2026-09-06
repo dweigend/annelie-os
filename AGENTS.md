@@ -42,3 +42,6 @@ No visible desktop heading. Program icons must be freely movable and remember
 positions. Every program, including the plain white text editor, opens in a
 window with a slim title bar and an always-visible X to close it. Closing must
 return to desktop without browser navigation and preserve editor drafts.
+
+Windows must resize from their edges and corners, with a discreet bottom-right
+grip. Keep the X reachable and content alive throughout resizing.

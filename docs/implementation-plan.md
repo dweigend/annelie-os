@@ -187,7 +187,10 @@ Remove the visible desktop heading. Allow free program-icon placement with
 positions stored locally. Separate drag from activation and keep icons on the
 visible desktop. Every program opens in a window with a 32 px header and a
 permanent X; closing returns to the same desktop without browser history.
-Keep editor drafts when closing/reopening its window. The desktop preview
+Allow resizing from all window edges and corners with a discreet bottom-right
+grip, a 480 × 320 px minimum and visible desktop bounds. Keep the X reachable
+and resize embedded content without reloading it. Keep editor drafts when
+closing/reopening its window. The desktop preview
 implements these interactions in `home.html` and `desktop-icons.js`.
 
 ### 4. Complete the editor

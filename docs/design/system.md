@@ -26,8 +26,7 @@ warm paper, rounded legible typography and tactile objects that are easy to
 recognize. The character is curious and gentle, never a reward dispenser or
 an authority that evaluates the child.
 
-Project/repository name: **Annelie OS**. Child-facing home heading:
-**Annelies Computer**. Stable app labels: **Texten**, **Rechnen**,
+Project/repository name: **Annelie OS**. The desktop has no visible heading. Stable app labels: **Texten**, **Rechnen**,
 **Schreibspiel**. `Schreibspiel` is the child-facing name for the independently
 maintained `letter-lerner` app; it does not narrow that app's practice modes.
 Keep internal app IDs and repository names unchanged.
@@ -78,8 +77,8 @@ an action or error token. Pair feedback text with its corresponding soft fill.
 Use real text and/or an icon as well as color. Keep control boundaries distinct;
 the lower-contrast divider token is only for decorative separation.
 
-Keep text on quiet, high-contrast areas. The home greeting is plain text over the open sky, with no greeting card
-or subtitle. Program launchers show only their icons, without captions or
+Keep text on quiet, high-contrast areas. Leave the open sky free of greeting text,
+cards and subtitles. Program launchers show only their icons, without captions or
 label pills. Their accessible names remain available to assistive technology. Editor text sits on plain white. Do not add
 containers to solve visual hierarchy that the mockups already resolve with
 space. See [measured semantic pairs](contrast.md); raster surfaces still need
@@ -180,8 +179,13 @@ screen-reader label states the current local time; do not announce every tick.
 ### Application window
 
 Every program, including Texten, opens inside a window above the desktop.
-Use one active window at a time, at most 1200 px wide with 48 px desktop margins
-and 12 px corners. The header stays 32 px high: centered 13 px program title,
+Use one active window at a time. Initially center it at at most 1200 px wide
+with 48 px desktop margins and 12 px corners. Resize from all four edges and
+four corners, keeping the opposite edge stationary. Use a discreet diagonal
+grip at the bottom right and directional resize cursors. Keep at least 480 × 320 px
+and 16 px clearance inside the desktop; retain geometry while closing/reopening
+during the current visit. The corner grip also accepts arrow keys in 16 px steps.
+Resizing must not remount the editor or reload an embedded game. The header stays 32 px high: centered 13 px program title,
 an always-visible 16 px X in a 28 px button at the upper right. Give the button
 a program-specific accessible name, such as Texten schließen. Closing returns
 to the same desktop and restores focus to the launching icon. Browser history
