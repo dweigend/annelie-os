@@ -159,12 +159,14 @@ Use the seven selectable landscapes described in [startup.md](startup.md) and
 
 ### Home
 
-One full-viewport scene, heading upper left, analog clock upper right, three
-large launchers in the calm central area. One click or Enter/Space launches an
-app; never require double-click. Match the fixed order Texten / Rechnen /
-Schreibspiel. Use 152 px image canvases at the reference desktop size. Preserve transparent margins and center the full image;
-do not crop or stretch the tile. Do not display text below the icons. Give each
-launcher its stable app name through `aria-label`.
+One full-viewport scene with no visible desktop heading, an analog clock upper
+right and three icon-only launchers. A click or Enter/Space opens a program;
+never require double-click. Initial order is Texten / Rechnen / Schreibspiel,
+but icons can be freely dragged within the desktop work area.
+Remember positions locally and clamp them to the visible work area on reopen
+or viewport changes. A drag must not also launch the app. Alt+Arrow keys offer
+a keyboard alternative for placement. Preserve the 152 px artwork proportions
+and accessible program names; no visible text below the icons.
 
 The home scene has no cat or decorative mascot. Keep attention on the three
 program icons and the calm landscape. Retain the character artwork as an unused
@@ -177,38 +179,39 @@ screen-reader label states the current local time; do not announce every tick.
 
 ### Application window
 
-Single active window, maximum 1200 px wide, 24 px corners, at least 24 px outer
-margin on a desktop. The header is 32 px high, with 12 px horizontal padding:
-a 16 px house icon in a 28 px button on the left (accessible name Zuhause),
-a centered 13 px medium-weight app title and a quiet 12 px status on the right.
-Use a fine divider and no raised button styling. This compact desktop navigation
-is an explicit exception to the general 48 px action-target rule. The editor is the explicit exception described below: its menu contains home
-navigation, so the idle writing view has no permanent window header.
-No functional minimize/maximize controls or overlapping free-moving windows in
-v1. Do not imitate macOS traffic lights as dead decorative controls.
+Every program, including Texten, opens inside a window above the desktop.
+Use one active window at a time, at most 1200 px wide with 48 px desktop margins
+and 12 px corners. The header stays 32 px high: centered 13 px program title,
+an always-visible 16 px X in a 28 px button at the upper right. Give the button
+a program-specific accessible name, such as Texten schließen. Closing returns
+to the same desktop and restores focus to the launching icon. Browser history
+buttons are never required for app navigation. Do not add fake traffic lights.
 
-The shell renders this header once. Embedded apps render only their content
-inside the remaining viewport. Internal back navigation belongs to the game;
-home navigation always belongs to the shell. Preserve focus when entering and
-returning, and put it back on the originating launcher after leaving an app.
+The shell owns one shared header; embedded programs render only their content.
+The standalone editor preview supplies its own identical header, while embedded
+mode hides that header. Keep editor drafts alive when the window is closed and
+reopened. The current preview retains its iframe for this purpose; persistent
+production document storage remains a separate implementation milestone.
 
 ### Texten — a blank white page
 
 David's latest explicit feedback supersedes the decorative details in source 8.
-The editor is a flat white page: no ring binding, texture, wallpaper, frame,
-rounded paper corners or shadow. Start with an empty document, without example
+The editor content is a flat white page inside the shared program window:
+no ring binding, texture, inner frame or decorative paper shadow. Start with an empty document, without example
 text or placeholder copy. Use locally bundled Courier Prime Regular at 36 px,
 line height 1.6, dark charcoal text and a normal live caret. The typewriter
 character comes from the typography alone.
 
-The page fills the viewport. Give writing 8% horizontal margins, 96 px above
+The page fills the window below its slim title bar. Give writing 8% horizontal margins, 96 px above
 and 48 px below. Show one small 20 px document icon at the upper right, within
 an invisible 48 px click target, with the accessible name Meine Texte.
 It directly opens the document list; do not require another menu step.
-New text and home actions remain inside that temporary panel. Use a flat white
+New text stays inside that temporary panel; the always-visible title-bar X
+closes the editor and returns to desktop. Use a flat white
 panel, fine gray border, minimal rounding and no shadow.
 
-No permanent title, sidebar, document list, home button, toolbar, save label,
+Apart from the program title and X, no permanent sidebar, document list,
+home button, toolbar, save label,
 character count or explanatory UI copy. Close the document panel after selection,
 when returning to writing or on Escape. Keep visible keyboard focus on controls.
 Normal saved status stays quiet; a genuine save failure may surface a concise
@@ -236,7 +239,7 @@ The clock updates at minute-level frequency, without a ticking second hand.
 | Component | Variants / states | Accessibility and behavior |
 | --- | --- | --- |
 | AppLauncher | Rest, hover, pressed, focus, unavailable | Button with visible app name; unavailable reason remains discoverable |
-| SystemWindow | Game, loading, failure | One header, home outside game content, meaningful title |
+| SystemWindow | Editor, game, loading, failure | One slim header with title and always-visible X |
 | Button | Primary, secondary, quiet, destructive; disabled | Native button, one primary action per decision, visible focus |
 | IconButton | Back, home, audio, retry | 48 px target, accessible action name, 24 px Lucide icon |
 | SegmentedChoice | Day/evening, selected/unselected | Pressed buttons for independent specimen toggles; use proper radio/tabs pattern in product as appropriate |

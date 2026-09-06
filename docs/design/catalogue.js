@@ -1,5 +1,4 @@
 /** Interactive documentation; production app behavior lives in separate projects. */
-import { initializeClock } from "./clock.js";
 
 const root = document.documentElement;
 const appState = document.querySelector("#app-state");
@@ -33,23 +32,9 @@ document.querySelector("#retry-app").addEventListener("click", () => {
 for (const button of document.querySelectorAll("[data-home]"))
 	button.addEventListener("click", () => {
 		document.querySelector("#home").scrollIntoView();
-		document.querySelector("[data-launch]").focus({ preventScroll: true });
-	});
-for (const button of document.querySelectorAll("[data-launch]"))
-	button.addEventListener("click", () => {
-		if (button.dataset.launch === "text") {
-			openEditor();
-			return;
-		}
-		const math = button.dataset.launch === "math";
-		document.querySelector("#sample-app-title").textContent = math
-			? "Rechnen"
-			: "Schreibspiel";
-		for (const image of document.querySelectorAll("[data-state-icon]"))
-			image.src = `../../static/design/icon-${math ? "math" : "letters"}.png`;
-		appState.value = "unavailable";
-		updateAppState();
-		document.querySelector("#states").scrollIntoView();
+		document
+			.querySelector(".catalogue-home-frame")
+			.focus({ preventScroll: true });
 	});
 for (const button of document.querySelectorAll("[data-demo-action]"))
 	button.addEventListener("click", () => {
@@ -83,4 +68,3 @@ document
 	.addEventListener("click", () =>
 		document.querySelector("#conflict-dialog").showModal(),
 	);
-initializeClock();

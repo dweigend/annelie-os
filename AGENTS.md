@@ -35,3 +35,10 @@ Annelie OS begins at Chrome kiosk launch and opens home directly. Never add a
 second splash or boot animation. `docs/design/boot.html` is a static identity
 reference only. Preserve the existing system startup; use the supplied seven
 backgrounds as appearance options in the application.
+
+## Desktop interaction
+
+No visible desktop heading. Program icons must be freely movable and remember
+positions. Every program, including the plain white text editor, opens in a
+window with a slim title bar and an always-visible X to close it. Closing must
+return to desktop without browser navigation and preserve editor drafts.

@@ -23,7 +23,7 @@ autostart, prevention of desktop escape, and continued SSH administration.
 
 Proposed defaults, adjustable during design discussion: plain text with titles,
 multiple documents, autosave, undo/redo, a recoverable trash, local server-side
-storage, one active game at a time, and a persistent home control. No cloud,
+storage, one active game at a time, and an always-visible window close control. No cloud,
 sign-in, live model calls, rich-text formatting, printing, import or export in
 the first editor version. These are scope proposals, not previously approved
 requirements. Age and final editor scope remain open. The visual reference family
@@ -183,10 +183,18 @@ Offer the seven backgrounds described in `docs/design/startup.md`; persist the
 appearance choice and apply it before home paints. External game failures must
 not block access to home or the editor.
 
+Remove the visible desktop heading. Allow free program-icon placement with
+positions stored locally. Separate drag from activation and keep icons on the
+visible desktop. Every program opens in a window with a 32 px header and a
+permanent X; closing returns to the same desktop without browser history.
+Keep editor drafts when closing/reopening its window. The desktop preview
+implements these interactions in `home.html` and `desktop-icons.js`.
+
 ### 4. Complete the editor
 
 Follow the latest editor feedback: a blank white page, typewriter text and one
-small document icon opening the text list directly. Omit rings, texture, wallpaper
+small document icon opening the text list directly. Place this writing area
+inside the shared window with an always-visible X. Omit rings, texture, wallpaper
 and shadows. Keep document controls inside that temporary panel, with no permanent sidebar,
 title field, formatting toolbar or status row. Implement document operations
 and persistence without adding resting UI clutter. Verify writing,

@@ -4,22 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Texten — Annelies Computer</title>
+  <script src="home-appearance.js"></script>
+  <script src="editor-context.js"></script>
   <link rel="stylesheet" href="../../src/app.css">
   <script src="notebook.js" defer></script>
 </head>
-<body class="aos-notebook-scene">
+<body class="aos-editor-scene">
+  <section class="aos-window aos-editor-window" aria-label="Texten-Fenster">
+    <header class="aos-window-header aos-editor-header"><span aria-hidden="true"></span><h1 class="aos-window-title">Texten</h1><a class="aos-button aos-button-quiet" href="home.html" aria-label="Texten schließen"><span class="aos-icon" data-icon="x" aria-hidden="true"></span></a></header>
   <main class="aos-notebook" aria-label="Texten">
     <label class="aos-sr-only" for="notebook-text">Dein Text</label>
     <textarea id="notebook-text" class="aos-notebook-text" spellcheck="false" autocomplete="off"></textarea>
     <details class="aos-notebook-menu" id="notebook-menu">
       <summary aria-label="Meine Texte"><span class="aos-icon" data-icon="file-text" aria-hidden="true"></span></summary>
       <div class="aos-notebook-menu-panel">
-        <a class="aos-button aos-button-quiet" href="home.html" target="_top"><span class="aos-icon" data-icon="house" aria-hidden="true"></span>Zuhause</a>
         <button class="aos-button aos-button-quiet" type="button" id="notebook-new"><span class="aos-icon" data-icon="plus" aria-hidden="true"></span>Neuer Text</button>
         <nav id="notebook-documents" class="aos-notebook-documents" aria-label="Meine Texte"></nav>
         <small>Designvorschau · Texte bleiben nur bis zum Neuladen erhalten.</small>
       </div>
     </details>
   </main>
+  </section>
 </body>
 </html>

@@ -26,7 +26,9 @@ Start here:
 - [Contrast results](contrast.md) and [verification](verification.md)
 
 Latest UI refinement: explicit feedback supersedes the ring-bound reference.
-The editor is a blank white page with Courier Prime and a tiny document icon. The resting editor has no
+The editor has a white writing area with Courier Prime and a tiny document icon,
+inside a slim window with an always-visible X. All programs use this window
+pattern. Desktop icons are movable; the visible desktop heading is removed. The resting editor has no
 sidebar, title field or permanent status row. Target the old MacBook Air only;
 mobile layouts are outside scope. Open [the white-page preview](editor.html) or
 [the minimal home preview](home.html) for direct mockup comparison.

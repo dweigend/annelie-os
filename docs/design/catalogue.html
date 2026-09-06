@@ -31,25 +31,9 @@
       <p class="catalogue-caption"><a href="startup.html">Choose a home background</a> · The operating-system startup is already configured. The kiosk opens home directly; this is only a static logo reference.</p>
     </section>
     <section id="home" aria-label="Home screen design" lang="de">
-      <div class="aos-desktop">
-        <div class="aos-desktop-top">
-          <div class="aos-desktop-greeting"><h2>Annelies<br>Computer</h2></div>
-          <svg class="aos-clock" viewBox="0 0 200 200" role="img" aria-label="Analoge Uhr" data-clock>
-            <title>Analoge Uhr</title><circle class="aos-clock-rim" cx="100" cy="100" r="94"/>
-            <g data-clock-face></g>
-            <line class="aos-clock-hour" x1="100" y1="100" x2="100" y2="53" data-hour-hand/>
-            <line class="aos-clock-minute" x1="100" y1="100" x2="100" y2="31" data-minute-hand/>
-            <circle class="aos-clock-pin" cx="100" cy="100" r="8"/>
-          </svg>
-        </div>
-        <div class="aos-launchers">
-          <button class="aos-launcher" aria-label="Texten" type="button" data-launch="text"><img src="../../static/design/icon-text.png" alt="" width="152" height="152"></button>
-          <button class="aos-launcher" aria-label="Rechnen" type="button" data-launch="math"><img src="../../static/design/icon-math.png" alt="" width="152" height="152"></button>
-          <button class="aos-launcher" aria-label="Schreibspiel" type="button" data-launch="letters"><img src="../../static/design/icon-letters.png" alt="" width="152" height="152"></button>
-        </div>
-      </div>
+      <iframe class="catalogue-home-frame" src="home.html" title="Desktop mit verschiebbaren Programm-Icons" loading="lazy"></iframe>
     </section>
-    <p class="catalogue-caption">Interactive design specimen. The clock shows local time. App buttons open the editor specimen or an unavailable-app example; no learning game is installed by this catalogue.</p>
+    <p class="catalogue-caption"><a href="home.html">Open the full desktop preview</a> · Drag icons to place them. Each program opens in a window; X closes it. Learning games are placeholders until connected.</p>
 
     <section id="foundations" class="catalogue-section">
       <div class="catalogue-section-heading"><h2>01 / Foundations</h2><p>Pastels belong to the landscape and playful objects. Text and actions use separate, contrast-tested semantic colors.</p></div>
@@ -70,9 +54,9 @@
     </section>
 
     <section id="editor" class="catalogue-section">
-      <div class="catalogue-section-heading"><h2>02 / Texten</h2><p>The latest editor direction: a blank white page, typewriter text and one small document icon.</p></div>
+      <div class="catalogue-section-heading"><h2>02 / Texten</h2><p>A blank white page with typewriter text, inside a slim window with an always-visible close button.</p></div>
       <iframe class="catalogue-editor-frame" src="editor.html" title="Minimal white-page editor preview"></iframe>
-      <p class="catalogue-caption"><a href="editor.html">Open the full-screen editor preview</a> · No sidebar, title field, toolbar or permanent save counter. The document icon opens old texts directly; home and new text stay inside that panel. Preview text is held in memory only.</p>
+      <p class="catalogue-caption"><a href="editor.html">Open the full-screen editor preview</a> · No sidebar, title field, toolbar or permanent save counter. The document icon opens old texts directly; the title-bar X always returns to desktop. Preview text is held in memory only.</p>
     </section>
 
     <section id="components" class="catalogue-section">
@@ -89,7 +73,7 @@
       <div class="catalogue-section-heading"><h2>04 / System states</h2><p>Keep home available. Keep writing recoverable. Explain the next useful action without blaming the child.</p></div>
       <div class="catalogue-preview-controls"><label for="app-state">App-state specimen</label><select id="app-state"><option value="unavailable">Unavailable</option><option value="loading">Loading</option><option value="empty">No documents yet</option></select></div>
       <div class="aos-window" lang="de">
-        <header class="aos-window-header"><button class="aos-button aos-button-quiet" type="button" data-home aria-label="Zuhause"><span class="aos-icon" data-icon="house" aria-hidden="true"></span></button><h3 class="aos-window-title" id="sample-app-title">Schreibspiel</h3><span class="aos-status">Vorschau</span></header>
+        <header class="aos-window-header"><span aria-hidden="true"></span><h3 class="aos-window-title" id="sample-app-title">Schreibspiel</h3><button class="aos-button aos-button-quiet" type="button" data-home aria-label="Programm schließen"><span class="aos-icon" data-icon="x" aria-hidden="true"></span></button></header>
         <div class="aos-empty" id="app-unavailable"><img src="../../static/design/icon-letters.png" alt="" width="112" height="112" data-state-icon><h3>Das Spiel ist gerade nicht bereit.</h3><p>Du kannst es noch einmal versuchen.</p><button class="aos-button aos-button-primary" type="button" id="retry-app"><span class="aos-icon" data-icon="rotate-ccw" aria-hidden="true"></span>Noch einmal</button><p id="retry-feedback" role="status"></p></div>
         <div class="aos-empty" id="app-loading" hidden><img src="../../static/design/icon-letters.png" alt="" width="112" height="112" data-state-icon><h3>Einen Moment …</h3><progress class="aos-progress" aria-label="Programm wird geöffnet"></progress><p>Das Spiel wird geöffnet.</p></div>
         <div class="aos-empty" id="app-empty" hidden><img src="../../static/design/icon-text.png" alt="" width="112" height="112"><h3>Platz für deine erste Geschichte.</h3><button class="aos-button aos-button-primary" type="button" data-start-writing>Neuer Text</button></div>

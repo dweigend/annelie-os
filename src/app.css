@@ -402,7 +402,7 @@ img {
 .aos-desktop-top {
 	display: flex;
 	align-items: start;
-	justify-content: space-between;
+	justify-content: flex-end;
 	gap: var(--aos-space-5);
 }
 .aos-desktop-greeting {
@@ -1169,4 +1169,111 @@ img {
 .aos-home-background .aos-icon {
 	width: 20px;
 	height: 20px;
+}
+
+/* Desktop geometry belongs to this stylesheet; dragging updates these rules. */
+.aos-desktop-icons {
+	position: absolute;
+	inset: 24px 24px 80px;
+}
+.aos-desktop-icons .aos-launcher {
+	position: absolute;
+	height: 168px;
+	touch-action: none;
+	user-select: none;
+	cursor: grab;
+}
+.aos-desktop-icons .aos-launcher img {
+	pointer-events: none;
+}
+.aos-desktop-icons .aos-launcher.is-dragging {
+	cursor: grabbing;
+	z-index: 2;
+}
+.aos-desktop-icons .aos-launcher:hover img,
+.aos-desktop-icons .aos-launcher:active img {
+	transform: none;
+}
+#desktop-text {
+	left: calc(50% - 300px);
+	top: 272px;
+}
+#desktop-math {
+	left: calc(50% - 84px);
+	top: 272px;
+}
+#desktop-letters {
+	left: calc(50% + 132px);
+	top: 272px;
+}
+.aos-program-window {
+	width: calc(100vw - 96px);
+	max-width: 1200px;
+	height: calc(100svh - 96px);
+	max-height: calc(100svh - 96px);
+	padding: 0;
+	margin: auto;
+	color: var(--aos-color-ink);
+	border-radius: 12px;
+}
+.aos-program-window[open] {
+	display: grid;
+	grid-template-rows: 32px minmax(0, 1fr);
+}
+.aos-program-window::backdrop {
+	background: transparent;
+}
+.aos-program-frame {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	background: #fff;
+}
+.aos-program-placeholder {
+	display: grid;
+	place-items: center;
+	padding: 48px;
+	text-align: center;
+}
+.aos-editor-scene {
+	min-height: 100svh;
+	display: grid;
+	place-items: center;
+	background: var(--aos-wallpaper) center / cover;
+}
+.aos-editor-window {
+	width: calc(100vw - 96px);
+	max-width: 1200px;
+	height: calc(100svh - 96px);
+	border-radius: 12px;
+}
+.aos-editor-window > .aos-notebook {
+	height: calc(100% - 32px);
+}
+.aos-editor-header .aos-button {
+	text-decoration: none;
+}
+[data-embedded-editor="true"] .aos-editor-scene {
+	background: #fff;
+}
+[data-embedded-editor="true"] .aos-editor-window {
+	width: 100%;
+	max-width: none;
+	height: 100svh;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+[data-embedded-editor="true"] .aos-editor-header {
+	display: none;
+}
+[data-embedded-editor="true"] .aos-editor-window > .aos-notebook {
+	height: 100%;
+}
+
+.catalogue-home-frame {
+	width: 100%;
+	height: 790px;
+	border: 0;
+	display: block;
 }

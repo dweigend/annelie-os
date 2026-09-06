@@ -50,3 +50,23 @@ selects only allowlisted backgrounds and remembers the choice in this browser.
 The web loading dots were removed. David confirmed that OS startup is already
 configured; this update does not modify or re-audit that setup. Kiosk entry
 must go directly to home.
+
+## Desktop interaction update
+
+Program icons are freely movable within the desktop work area and positions
+are stored as normalized coordinates. Every program opens in a native dialog
+with one slim header and an X. The editor iframe is retained while hidden so
+closing/reopening does not discard its in-memory drafts. The standalone editor
+has the same close affordance. The desktop heading is removed.
+
+Implementation references: [pointer capture](https://developer.mozilla.org/en-US/docs/Web/API/Element/setPointerCapture),
+[native dialogs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal)
+and [CSS rule updates](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleRule/style).
+Dynamic icon geometry updates rules declared in app.css; no inline styles or
+runtime style elements are added. No new framework or dependency was introduced.
+
+At the MacBook Air comparison size, dragging changed the icon position without
+opening a window; reloading retained that position. Writing Hallo Welt,
+closing Texten with X and reopening retained the text. The window has a single
+header and no duplicate editor chrome. These checks cover the local design
+preview, not installed learning games or production document persistence.

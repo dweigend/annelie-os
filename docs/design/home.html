@@ -11,16 +11,19 @@
 <body class="aos-home-scene">
   <main class="aos-desktop aos-desktop-full" aria-label="Annelies Computer">
     <div class="aos-desktop-top">
-      <div class="aos-desktop-greeting"><h1>Annelies<br>Computer</h1></div>
       <svg class="aos-clock" viewBox="0 0 200 200" role="img" aria-label="Analoge Uhr" data-clock><title>Analoge Uhr</title><circle class="aos-clock-rim" cx="100" cy="100" r="94"/><g data-clock-face></g><line class="aos-clock-hour" x1="100" y1="100" x2="100" y2="53" data-hour-hand/><line class="aos-clock-minute" x1="100" y1="100" x2="100" y2="31" data-minute-hand/><circle class="aos-clock-pin" cx="100" cy="100" r="8"/></svg>
     </div>
-    <div class="aos-launchers">
-      <a class="aos-launcher" aria-label="Texten" href="editor.html"><img src="../../static/design/icon-text.png" alt="" width="152" height="152"></a>
-      <button class="aos-launcher" aria-label="Rechnen" type="button" data-game="Rechnen"><img src="../../static/design/icon-math.png" alt="" width="152" height="152"></button>
-      <button class="aos-launcher" aria-label="Schreibspiel" type="button" data-game="Schreibspiel"><img src="../../static/design/icon-letters.png" alt="" width="152" height="152"></button>
-    </div>
+    <nav class="aos-desktop-icons" aria-label="Programme">
+      <button id="desktop-text" class="aos-launcher" aria-label="Texten" type="button" data-app="text"><img src="../../static/design/icon-text.png" alt="" width="152" height="152" draggable="false"></button>
+      <button id="desktop-math" class="aos-launcher" aria-label="Rechnen" type="button" data-app="math"><img src="../../static/design/icon-math.png" alt="" width="152" height="152" draggable="false"></button>
+      <button id="desktop-letters" class="aos-launcher" aria-label="Schreibspiel" type="button" data-app="letters"><img src="../../static/design/icon-letters.png" alt="" width="152" height="152" draggable="false"></button>
+    </nav>
     <a class="aos-home-background" href="startup.html" aria-label="Hintergrund wählen"><span class="aos-icon" data-icon="sun" aria-hidden="true"></span></a>
   </main>
-  <dialog class="aos-dialog" id="game-preview-dialog" aria-labelledby="game-preview-title"><h2 id="game-preview-title">Designvorschau</h2><p>Dieses Spiel ist in der Designvorschau nicht verbunden.</p><form method="dialog" class="aos-dialog-actions"><button class="aos-button" type="submit" autofocus>Zurück</button></form></dialog>
+  <dialog class="aos-window aos-program-window" id="program-window" aria-labelledby="program-title">
+    <header class="aos-window-header"><span aria-hidden="true"></span><h2 class="aos-window-title" id="program-title">Texten</h2><button class="aos-button aos-button-quiet" type="button" id="program-close" aria-label="Programm schließen"><span class="aos-icon" data-icon="x" aria-hidden="true"></span></button></header>
+    <iframe class="aos-program-frame" id="editor-frame" title="Texten" hidden></iframe>
+    <div class="aos-program-placeholder" id="game-preview" hidden><p>Dieses Spiel ist in der Designvorschau noch nicht verbunden.</p></div>
+  </dialog>
 </body>
 </html>
