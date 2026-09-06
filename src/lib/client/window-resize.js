@@ -4,10 +4,16 @@ const MIN_WIDTH = 480;
 const MIN_HEIGHT = 320;
 const DESKTOP_MARGIN = 16;
 const KEYBOARD_STEP = 16;
+const KEYBOARD_DIRECTIONS = {
+	ArrowLeft: [-1, 0],
+	ArrowRight: [1, 0],
+	ArrowUp: [0, -1],
+	ArrowDown: [0, 1],
+};
 const clamp = (value, minimum, maximum) =>
 	Math.max(minimum, Math.min(maximum, value));
 
-/** Resize one shell window per document, keeping its opposite edge and content intact. */
+/** Resize a shell window and move its optional paper grip without remounting content. */
 export function initializeWindowResize(programWindow) {
 	const geometry = geometryRule(".aos-window-sized");
 	programWindow.classList.add("aos-resizable-window");
@@ -47,7 +53,56 @@ export function initializeWindowResize(programWindow) {
 
 	function finishResize() {
 		drag = undefined;
-		programWindow.classList.remove("is-resizing");
+		programWindow.classList.remove("is-resizing", "is-moving");
+	}
+
+	function beginDrag(event, handle, className) {
+		if (event.button !== 0 || !event.isPrimary) return;
+		event.preventDefault();
+		drag = {
+			id: event.pointerId,
+			x: event.clientX,
+			y: event.clientY,
+			bounds: programWindow.getBoundingClientRect(),
+		};
+		handle.setPointerCapture(event.pointerId);
+		programWindow.classList.add(className);
+	}
+
+	function move(bounds, dx, dy) {
+		const left = clamp(
+			bounds.left + dx,
+			DESKTOP_MARGIN,
+			innerWidth - DESKTOP_MARGIN - bounds.width,
+		);
+		const top = clamp(
+			bounds.top + dy,
+			DESKTOP_MARGIN,
+			innerHeight - DESKTOP_MARGIN - bounds.height,
+		);
+		applyBounds(left, top, left + bounds.width, top + bounds.height);
+	}
+
+	for (const handle of programWindow.querySelectorAll("[data-window-drag]")) {
+		handle.addEventListener("pointerdown", (event) =>
+			beginDrag(event, handle, "is-moving"),
+		);
+		handle.addEventListener("pointermove", (event) => {
+			if (!drag || drag.id !== event.pointerId) return;
+			move(drag.bounds, event.clientX - drag.x, event.clientY - drag.y);
+		});
+		handle.addEventListener("pointerup", finishResize);
+		handle.addEventListener("lostpointercapture", finishResize);
+		handle.addEventListener("keydown", (event) => {
+			const direction = KEYBOARD_DIRECTIONS[event.key];
+			if (!direction) return;
+			event.preventDefault();
+			move(
+				programWindow.getBoundingClientRect(),
+				direction[0] * KEYBOARD_STEP,
+				direction[1] * KEYBOARD_STEP,
+			);
+		});
 	}
 
 	for (const edge of ["n", "e", "s", "w", "ne", "nw", "sw", "se"]) {
@@ -58,12 +113,7 @@ export function initializeWindowResize(programWindow) {
 			handle.setAttribute("aria-label", "Fenstergröße ändern");
 			handle.title = "Fenstergröße ändern · Ziehen oder Pfeiltasten";
 			handle.addEventListener("keydown", (event) => {
-				const direction = {
-					ArrowLeft: [-1, 0],
-					ArrowRight: [1, 0],
-					ArrowUp: [0, -1],
-					ArrowDown: [0, 1],
-				}[event.key];
+				const direction = KEYBOARD_DIRECTIONS[event.key];
 				if (!direction) return;
 				event.preventDefault();
 				resize(
@@ -75,16 +125,7 @@ export function initializeWindowResize(programWindow) {
 			});
 		} else handle.setAttribute("aria-hidden", "true");
 		handle.addEventListener("pointerdown", (event) => {
-			if (event.button !== 0 || !event.isPrimary) return;
-			event.preventDefault();
-			drag = {
-				id: event.pointerId,
-				x: event.clientX,
-				y: event.clientY,
-				bounds: programWindow.getBoundingClientRect(),
-			};
-			handle.setPointerCapture(event.pointerId);
-			programWindow.classList.add("is-resizing");
+			beginDrag(event, handle, "is-resizing");
 		});
 		handle.addEventListener("pointermove", (event) => {
 			if (!drag || drag.id !== event.pointerId) return;

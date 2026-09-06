@@ -98,7 +98,7 @@
 	</nav>
 	<BackgroundPicker {scene} {choose} />
 	{#if active}
-		<AppWindow title={APP_LABELS[active]} {close}>
+		<AppWindow title={APP_LABELS[active]} {close} frameless={active === "text"}>
 			{#if active === "text"}<Notebook {editor} />{:else}<ExternalApp
 					app={apps.find(
 						(app) =>

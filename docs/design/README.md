@@ -28,8 +28,9 @@ Start here:
 Latest UI refinement: David restored the ring-bound reference as an explicit
 exception to the minimal system. The editor uses the existing notebook artwork,
 Courier Prime and a tiny document icon,
-inside a slim window with an always-visible X. All programs use this window
-pattern. Desktop icons are movable; the visible desktop heading is removed. The resting editor has no
+as a frameless floating block, with no outer window or title bar. Drag the
+ring-binding area to move it; the X remains on the paper. External programs
+retain the slim window pattern. Desktop icons are movable; the visible desktop heading is removed. The resting editor has no
 sidebar, title field or permanent status row. Target the old MacBook Air only;
 mobile layouts are outside scope. Open [the ring-notebook preview](editor.html) or
 [the minimal home preview](home.html) for direct mockup comparison.

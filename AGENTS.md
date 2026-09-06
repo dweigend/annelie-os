@@ -39,8 +39,9 @@ backgrounds as appearance options in the application.
 ## Desktop interaction
 
 No visible desktop heading. Program icons must be freely movable and remember
-positions. Every program, including the ring-notebook text editor, opens in a
-window with a slim title bar and an always-visible X to close it. Closing must
+positions. External programs open in a window with a slim title bar and an always-visible X.
+The text editor is a frameless floating ringbook, with no outer frame or title
+bar. Its upper binding area is a drag grip; a small X sits directly on the paper. Closing must
 return to desktop without browser navigation and preserve editor drafts.
 
 Windows must resize from their edges and corners, with a discreet bottom-right

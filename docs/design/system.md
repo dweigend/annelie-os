@@ -19,6 +19,15 @@ that request, not a claim that every detail has received separate approval.
 The catalogue is a design document with interactive specimens. It is not the
 finished shell, editor, game, installer or kiosk session.
 
+## Floating editor refinement
+
+The editor is the explicit exception to shell window chrome. Render the ringbook
+without an outer border, background panel or title bar. Its ring-binding area
+moves the block by pointer drag or arrow keys. Keep a small X directly on the
+paper, the document menu, edge resizing and automatic saving. External apps keep
+the existing slim window header. The production implementation is authoritative;
+older static specimens retain the prior framed layout.
+
 ## Visual identity
 
 **A familiar little place to learn.** Use a quiet illustrated lakeside world,

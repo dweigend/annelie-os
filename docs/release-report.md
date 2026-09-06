@@ -9,6 +9,17 @@ enabled, with both health endpoints responding successfully. The old test-site
 files and disabled unit are still present; the prepared cleanup remains optional
 for operation but outstanding under the user's removal request.
 
+## Subsequent floating-editor update
+
+The local application now renders the editor as a frameless floating ringbook.
+The outer window and title bar are removed. The ring-binding grip moves the
+block with pointer or arrow keys; close and document controls sit on the paper.
+External programs keep their window chrome. Dragging, closing and reopening with
+text retained were checked at 1440 × 900. Lint, type checks and build pass.
+This refinement is not yet part of the installed MacBook revision below.
+
+![Frameless floating ringbook](qa/floating-notebook.jpg)
+
 ## MacBook deployment result
 
 - Annelie OS `7ca3dd631bae` runs on loopback port 8765.
