@@ -46,6 +46,8 @@ return to desktop without browser navigation and preserve editor drafts.
 
 Windows must resize from their edges and corners, with a discreet bottom-right
 grip. Keep the X reachable and content alive throughout resizing.
+Normal windows move through their title bar; the editor moves through its paper
+binding. Reuse the shared window geometry and keep embedded programs mounted.
 
 The editor is the explicit visual exception: restore notebook-paper.png with
 its ring binding and subtle paper texture. Keep Courier Prime and minimal controls.

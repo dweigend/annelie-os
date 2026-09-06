@@ -50,6 +50,13 @@
 			<span aria-hidden="true"></span>
 			<h1 class="aos-window-title" id="program-title">{title}</h1>
 			<button
+				type="button"
+				class="os-window-drag"
+				data-window-drag
+				aria-label={`${title} verschieben`}
+				title="Fenster verschieben · Ziehen oder Pfeiltasten"
+			></button>
+			<button
 				class="aos-button aos-button-quiet"
 				type="button"
 				aria-label={`${title} schließen`}

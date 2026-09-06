@@ -13,7 +13,7 @@ const KEYBOARD_DIRECTIONS = {
 const clamp = (value, minimum, maximum) =>
 	Math.max(minimum, Math.min(maximum, value));
 
-/** Resize a shell window and move its optional paper grip without remounting content. */
+/** Resize and move a shell window through its title bar or paper grip without remounting content. */
 export function initializeWindowResize(programWindow) {
 	const geometry = geometryRule(".aos-window-sized");
 	programWindow.classList.add("aos-resizable-window");

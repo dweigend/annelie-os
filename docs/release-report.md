@@ -9,16 +9,21 @@ enabled, with both health endpoints responding successfully. The old test-site
 files and disabled unit are still present; the prepared cleanup remains optional
 for operation but outstanding under the user's removal request.
 
-## Subsequent floating-editor update
+## Subsequent window update
 
 The local application now renders the editor as a frameless floating ringbook.
 The outer window and title bar are removed. The ring-binding grip moves the
 block with pointer or arrow keys; close and document controls sit on the paper.
-External programs keep their window chrome. Dragging, closing and reopening with
+External programs keep their slim window chrome and now move through the title bar.
+Pointer dragging moved the Letter-Lerner window by the exact requested offset
+while its writing exercise stayed open; arrow-key movement and X were also checked.
+Dragging, closing and reopening with
 text retained were checked at 1440 × 900. Lint, type checks and build pass.
 This refinement is not yet part of the installed MacBook revision below.
 
 ![Frameless floating ringbook](qa/floating-notebook.jpg)
+
+![Moved game window with exercise retained](qa/movable-game-window.png)
 
 ## MacBook deployment result
 
@@ -136,10 +141,11 @@ includes the official Linux runtime verified against nodejs.org's published SHA-
 Installation and production service startup are verified on the target. The new
 desktop and editor are visually verified there. A full reboot after application
 installation, physical audio, a complete play-through and renewed parent-unlock acceptance
-remain unverified. The SSH connection subsequently timed out again. Do not
+have not been individually recorded after installation. The user has since reported
+that the system was tested and everything works; SSH is reachable again. Do not
 interpret enabled services as a completed cold-boot test.
 
-The arithmetic game is still a separate future project. The release prepares its
+The arithmetic game is now being implemented in a separate coordinated task. The release prepares its
 window/registry integration but does not include game rules or pretend that a
 calculator mockup is a finished learning game. Letter-Lerner retains its own current
 artwork and learning mechanics. No rich text, document trash, export, printing or
@@ -147,7 +153,7 @@ new parent settings UI was added to the agreed minimal editor.
 
 ## Next steps
 
-1. Keep the MacBook powered on, open and connected; run the prepared cleanup for
+1. Install the prepared shell window update, then run the prepared cleanup for
    the root-owned initial test website and verify its files/unit are absent.
 2. Check Letter-Lerner interaction/audio, writing/reopening and parent unlock on
    the actual MacBook.

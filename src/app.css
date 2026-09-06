@@ -350,6 +350,7 @@ img {
 	overflow: clip;
 }
 .aos-window-header {
+	position: relative;
 	height: var(--aos-window-bar);
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
@@ -357,6 +358,21 @@ img {
 	gap: 8px;
 	padding: 0 12px;
 	border-bottom: 1px solid var(--aos-color-border);
+}
+.os-window-drag {
+	position: absolute;
+	inset: 0 48px 0 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	touch-action: none;
+	cursor: grab;
+}
+.os-window-drag:focus-visible {
+	outline-offset: -3px;
+}
+.is-moving .os-window-drag {
+	cursor: grabbing;
 }
 .aos-window-header > :first-child {
 	justify-self: start;
@@ -1423,7 +1439,8 @@ dialog.aos-resizable-window {
 .aos-resize-se:focus-visible {
 	outline-offset: -3px;
 }
-.is-resizing iframe {
+.is-resizing iframe,
+.is-moving iframe {
 	pointer-events: none;
 }
 .is-resizing {
