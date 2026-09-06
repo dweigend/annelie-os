@@ -3,8 +3,9 @@
 - Communicate with David in German. Write code, comments, documentation, file
   names, commits and pull requests in English. Product UI is German.
 - Read `docs/implementation-plan.md`, `docs/app-contract.md`, and
-  `docs/design/README.md` before implementation. Visual selection is pending;
-  do not treat an unselected mockup as approved.
+  `docs/design/README.md` and `docs/design/system.md` before implementation.
+  David's supplied reference family is the selected direction. Use the v1
+  design system; the earlier three mockups are historical exploration.
 - Inspect Git status and existing patterns before changes. Preserve concurrent
   work. Commit a checkpoint before substantial changes and completed units
   promptly. Use concise conventional commits without assistant attribution.

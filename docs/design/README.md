@@ -1,15 +1,41 @@
-# Visual exploration
+# Design system and visual decision
 
-Date: 2026-09-06. Method: built-in GPT Image tool. These are concept images,
-not screenshots of working software. Full prompts are stored beside each image.
+Version 1.0.0 · 2026-09-06. David supplied eight design-reference images and
+requested a complete, unified system based on them. Those references supersede
+the earlier exploratory options below.
 
 ## Decision
 
-Pending David's feedback. No direction is approved yet. Record the selected
-image(s), refinements and agreed editor scope here before implementation.
-Do not infer approval from the order of images or a preselected chat answer.
+The selected direction combines the lake setting from source 4, the tactile
+app family from source 5, the analog clock from source 6 and the cat from source
+7. The consolidated design defines day/evening colors, local Nunito typography,
+spacing, controls, a shared window, editor patterns, recovery states and app
+integration. The exact v1 refinements are the result of the design task and
+remain reviewable; do not describe them as separately user-approved details.
 
-The visible chat display order is the authoritative selection numbering:
+Start here:
+
+- [Interactive catalogue](catalogue.html)
+- [Complete specification](system.md)
+- [Canonical CSS](../../src/app.css) and [token export](../../design/tokens.json)
+- [Assets, sources and full generation prompts](assets.md)
+- [Contrast results](contrast.md) and [verification](verification.md)
+
+Latest UI refinement: source 8 defines the editor as a ring-bound notebook
+with Courier Prime and a single menu button. The resting editor has no
+sidebar, title field or permanent status row. Target the old MacBook Air only;
+mobile layouts are outside scope. Open [the notebook preview](editor.html) or
+[the minimal home preview](home.html) for direct mockup comparison.
+
+The product labels are Annelies Computer / Texten / Rechnen / Schreibspiel.
+The project remains Annelie OS and the game remains `letter-lerner` internally.
+Rich text, quick notes, extra apps and shutdown behavior visible in source
+images are not automatically approved functionality. See the scope decisions
+in the specification before implementation.
+
+## Historical exploration
+
+The initial chat display order was:
 
 | Chat number | Concept | Image | Full prompt |
 | --- | --- | --- | --- |
@@ -31,8 +57,5 @@ Its large text and long line need adjustment against actual window sizes and
 the desired writing size. The blue home direction adds a decorative pale wave;
 the warm direction uses tactile illustrations. These are style proposals.
 
-Before building, refine the selected home/editor combination into one shared
-navigation, palette, typography and icon treatment. Generate reusable artwork
-separately if selected; the concept screenshot itself is not an application
-background. Failure, empty-document and narrow-window states will need matching
-UI treatment during implementation.
+These three original files are retained for history and are no longer the
+current visual target. Use the consolidated v1 system above.

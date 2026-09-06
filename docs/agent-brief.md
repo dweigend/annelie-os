@@ -1,8 +1,9 @@
 # Local implementation agent brief
 
-Use this brief after David selects/refines the visual target in
-`docs/design/README.md`. No implementation agent has been launched during
-preparation. The concrete visual choice must be recorded before UI work starts.
+David supplied eight images as the visual direction. Use the consolidated v1
+system in `docs/design/system.md`, `src/app.css`, `design/tokens.json`, and the
+interactive `docs/design/catalogue.html`. No application implementation agent
+has been launched during design-system preparation.
 
 ## Task
 
@@ -11,10 +12,17 @@ repository. Follow `AGENTS.md`, `docs/implementation-plan.md`, and
 `docs/app-contract.md`. Communicate in German. Inspect the current checkout,
 preserve concurrent changes, and make a checkpoint before substantial work.
 
+Target the old MacBook Air only. Prioritize David's supplied mockups and
+explicit UI feedback over generic interface conventions. Do not run mobile
+test matrices. Texten must follow source 8: a ring-bound notebook, Courier Prime,
+only text/caret and one small menu button. Remove permanent sidebar, title field,
+toolbar, status counter and window header from the resting editor.
+
 First read the recorded visual decision and reproduce it consistently across
-home, editor, app frame and error states. If it is still pending, obtain that
-decision rather than selecting an unapproved mockup. Confirm any editor scope
-proposals left open in the design decision.
+home, editor, app frame and error states. Reuse the supplied local font, artwork,
+semantic tokens and component patterns. Treat the catalogue as a design specimen,
+not finished application code. Confirm editor scope proposals still left open;
+formatting buttons in source images alone do not approve a rich-text editor.
 
 Prove integration with the real Letter-Lerner on a separate loopback port early.
 Keep game code and game-specific integration changes in its own repository;
@@ -31,7 +39,7 @@ dependencies. Read version-appropriate official documentation before coding.
 
 Work through every local acceptance criterion in the plan. Run mandatory lint,
 type checks, relevant behavioral tests and the production build. Verify the
-actual UI in a browser at the target sizes, including game failure and document
+actual UI in a browser at the MacBook Air target size, including game failure and document
 recovery. Review and simplify after each implementation pass.
 
 Deliver the working local preview, reproducible setup and startup commands,

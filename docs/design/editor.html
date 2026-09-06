@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="de" data-theme="day">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Texten — Annelies Computer</title>
+  <link rel="stylesheet" href="../../src/app.css">
+  <script src="notebook.js" defer></script>
+</head>
+<body class="aos-notebook-scene">
+  <main class="aos-notebook" aria-label="Texten">
+    <img class="aos-notebook-paper" src="../../static/design/notebook-paper.png" alt="">
+    <label class="aos-sr-only" for="notebook-text">Dein Text</label>
+    <textarea id="notebook-text" class="aos-notebook-text" spellcheck="false" autocomplete="off">Hallo Welt</textarea>
+    <details class="aos-notebook-menu" id="notebook-menu">
+      <summary aria-label="Menü"><span class="aos-icon" data-icon="menu" aria-hidden="true"></span></summary>
+      <div class="aos-notebook-menu-panel">
+        <a class="aos-button aos-button-quiet" href="home.html" target="_top"><span class="aos-icon" data-icon="house" aria-hidden="true"></span>Zuhause</a>
+        <button class="aos-button aos-button-quiet" type="button" id="notebook-new"><span class="aos-icon" data-icon="plus" aria-hidden="true"></span>Neuer Text</button>
+        <button class="aos-button aos-button-quiet" type="button" id="notebook-documents-toggle" aria-expanded="false" aria-controls="notebook-documents"><span class="aos-icon" data-icon="file-text" aria-hidden="true"></span>Meine Texte</button>
+        <div id="notebook-documents" class="aos-notebook-documents" hidden></div>
+        <small>Designvorschau · Texte bleiben nur bis zum Neuladen erhalten.</small>
+      </div>
+    </details>
+  </main>
+</body>
+</html>

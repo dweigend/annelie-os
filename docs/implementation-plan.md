@@ -1,6 +1,7 @@
 # Annelie OS implementation plan
 
-Date: 2026-09-06. Status: ready for discussion; visual choice remains open.
+Date: 2026-09-06. Status: visual direction consolidated in the v1 design system;
+application implementation and editor scope confirmation remain next.
 
 ## Outcome
 
@@ -25,7 +26,8 @@ multiple documents, autosave, undo/redo, a recoverable trash, local server-side
 storage, one active game at a time, and a persistent home control. No cloud,
 sign-in, live model calls, rich-text formatting, printing, import or export in
 the first editor version. These are scope proposals, not previously approved
-requirements. The age, preferred writing size and exact visual style are open.
+requirements. Age and final editor scope remain open. The visual reference family
+is now supplied by David; the v1 system specifies 36 px Courier Prime writing as the baseline.
 
 ## Repository boundaries
 
@@ -152,10 +154,11 @@ updates without placing personal writing in a checkout.
 
 ### 1. Select the visual target
 
-Review the three [mockups](design/README.md), choose or combine directions,
-refine with GPT Image, and record the exact selected files and adjustments.
-Confirm the editor scope proposals while refining. Derive shared colors,
-typography, spacing, focus and control sizes from the selected reference.
+Completed design preparation: David supplied eight reference images. The
+[v1 design system](design/system.md) consolidates their visual language, local
+assets, tokens, component states and app-integration rules. Earlier mockups are
+historical. Review the interactive catalogue and reuse the delivered system.
+Confirm remaining editor scope proposals before implementing persistence.
 
 ### 2. Prove the separate-program integration
 
@@ -170,12 +173,15 @@ standalone mode and documenting them in that repository.
 Implement home and persistent system navigation, native editor route and one
 external-app view. Validate app manifests; show unavailable/not-installed
 states without displaying URLs or stack traces. An absent game must not prevent
-writing. Match the selected mockup at 1440 x 900 and verify 1366 x 768 plus
-smaller windows. Use real semantics, visible focus and at least 48 px controls.
+writing. Match the selected mockups at the old MacBook Air design viewport of
+1440 x 900. Mobile layouts and mobile checks are outside scope. Use real semantics, visible focus and at least 48 px controls.
 
 ### 4. Complete the editor
 
-Implement the agreed document operations and persistence above. Verify writing,
+Follow the new notebook editor reference: paper, typewriter text and one
+menu button. Keep document controls inside that menu, with no permanent sidebar,
+title field, formatting toolbar or status row. Implement document operations
+and persistence without adding resting UI clutter. Verify writing,
 switching documents, navigating home, refresh, server restart, browser reopen,
 save failures, draft recovery, revision conflicts, trash and restore.
 

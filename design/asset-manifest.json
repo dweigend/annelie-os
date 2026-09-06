@@ -1,0 +1,66 @@
+{
+	"version": "1.0.0",
+	"assets": [
+		{
+			"path": "static/design/cat-peek.png",
+			"width": 1536,
+			"height": 1024,
+			"bytes": 1898545,
+			"sha256": "acd86bc728a1e2f42c3e1076da07d237136949e11c0c76b250b85f1d8629442e",
+			"mode": "RGBA",
+			"alphaRange": [0, 254]
+		},
+		{
+			"path": "static/design/icon-letters.png",
+			"width": 1254,
+			"height": 1254,
+			"bytes": 1049867,
+			"sha256": "094bb9724e82f1d5d3f409a84f16c5446c14405b3a982088b25706016271c831",
+			"mode": "RGBA",
+			"alphaRange": [0, 255]
+		},
+		{
+			"path": "static/design/icon-math.png",
+			"width": 1254,
+			"height": 1254,
+			"bytes": 1085710,
+			"sha256": "27680e5ca0a7533bb8eeaff2b4e3c57c4bc26a06744f476f6ef95172d72ea893",
+			"mode": "RGBA",
+			"alphaRange": [0, 255]
+		},
+		{
+			"path": "static/design/icon-text.png",
+			"width": 1254,
+			"height": 1254,
+			"bytes": 1058191,
+			"sha256": "9c3dfc4f70bddfd5f892ca19a6a45217c0c2b62765f58f41bcb9546d4c544ffa",
+			"mode": "RGBA",
+			"alphaRange": [0, 255]
+		},
+		{
+			"path": "static/design/notebook-paper.png",
+			"width": 1448,
+			"height": 1086,
+			"bytes": 1986327,
+			"sha256": "ce139bbbcc231bcaf03c1754da374066a256c50bb462850db4363713361f841c",
+			"mode": "RGBA",
+			"alphaRange": [0, 255]
+		},
+		{
+			"path": "static/design/wallpaper-day.png",
+			"width": 1586,
+			"height": 992,
+			"bytes": 1659304,
+			"sha256": "bc568c2cabc9aeaf054e7d735571e9ef88fd7a1b6ce5e9deab06a46f17d08560",
+			"mode": "RGB"
+		},
+		{
+			"path": "static/design/wallpaper-evening.png",
+			"width": 1586,
+			"height": 992,
+			"bytes": 1834606,
+			"sha256": "f251f6cfba78622206efd3e339e7236b42203f47ac70507583e6ffdfb3d6b7ec",
+			"mode": "RGB"
+		}
+	]
+}

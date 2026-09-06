@@ -85,6 +85,13 @@ RPC framework. Validate envelope schema, `event.origin`, expected iframe
 `event.source`, active app ID and protocol version. Send to an exact
 `targetOrigin`, never `*`. Messages must not grant file or process access.
 
+The v1 design system proposes a negotiated shell-to-app `appearance` message
+containing design version, `day`/`evening` and reduced-motion preference. Adopt
+it only when both peers support it; it is not yet implemented in Letter-Lerner.
+See [design integration](design/system.md#independent-app-integration). Each
+app bundles its supported tokens locally rather than loading runtime CSS from
+the shell or GitHub.
+
 ## Readiness and failures
 
 The app's proposed `/healthz` reports whether its required assets/data loaded;

@@ -1,0 +1,315 @@
+# Annelie OS design system
+
+Version 1.0.0 · 2026-09-06 · Derived from David's eight supplied references.
+
+This specification replaces the earlier three exploratory concepts as the
+implementation baseline. David selected the supplied reference family as the
+direction; the precise consolidation below is the design work delivered from
+that request, not a claim that every detail has received separate approval.
+
+## Deliverables and authority
+
+1. This specification defines product patterns and decisions.
+2. `src/app.css` is the canonical implementation of tokens and specimen styles.
+3. `design/tokens.json` is a reproducible, versioned export for independent apps.
+4. [The interactive catalogue](catalogue.html) demonstrates the visual result.
+5. [Assets and provenance](assets.md) identifies reusable files and references.
+6. [Verification](verification.md) records checks and their limits.
+
+The catalogue is a design document with interactive specimens. It is not the
+finished shell, editor, game, installer or kiosk session.
+
+## Visual identity
+
+**A familiar little place to learn.** Use a quiet illustrated lakeside world,
+warm paper, rounded legible typography and tactile objects that are easy to
+recognize. The character is curious and gentle, never a reward dispenser or
+an authority that evaluates the child.
+
+Project/repository name: **Annelie OS**. Child-facing home heading:
+**Annelies Computer**. Stable app labels: **Texten**, **Rechnen**,
+**Schreibspiel**. `Schreibspiel` is the child-facing name for the independently
+maintained `letter-lerner` app; it does not narrow that app's practice modes.
+Keep internal app IDs and repository names unchanged.
+
+### Reference reconciliation
+
+| Source | Adopt | Resolve consistently |
+| --- | --- | --- |
+| 01 Desktop exploration | Window softness and familiar app objects | Do not carry over Apple branding, Finder, generic menus or extra installed apps |
+| 02 Home and apps | Three launchers, large analog clock, calm paper workspace | Choose the lake setting as the default, not alternating room and lake styles |
+| 03 States and personality | Evening mood, discreet cat, launch and farewell patterns | No fabricated progress percentages, automatic shutdown, compulsory mascot interaction or scope expansion |
+| 04 System board | Main composition, lake palette, generous space | Replace promotional paragraphs with a small number of real controls |
+| 05 App family | Ivory tiles, blue typewriter, arithmetic discs, colored ABC | Typewriter identifies Texten; pencil remains the future quick-note symbol |
+| 06 Clock study | Cream dial, red/blue hands, yellow center | Short red = hours; long blue = minutes, consistently and mathematically correct |
+| 07 Character sheet | Existing charcoal/cream cat identity | Use one quiet pose at a time, outside the work area |
+| 08 Notebook editor | Ring-bound paper, typewriter face, one menu control | Supersedes the earlier sidebar and framed-editor design |
+
+Visible images are evidence of style, not instructions to add every depicted
+feature. No Apple logo, browser address bar, desktop escape, nonfunctional
+traffic lights, redundant settings, store, music or photos app is introduced.
+
+## Foundations
+
+### Color
+
+Primitive decorative palette: sky `#A1D3E9`, cream `#FFF1D2`, sage `#A6C598`,
+lake `#548D7D`, blue `#8FC7FA`, yellow `#FFCE62`, coral `#FF7B80`, teal
+`#31BEC1`. These values are a coherent interpretation of the references, not
+claimed pixel-exact extraction. Raster artwork contains a wider natural range.
+
+| Semantic role | Day | Evening |
+| --- | --- | --- |
+| Canvas | `#F6F4EE` | `#172238` |
+| Surface | `#FFFCF7` | `#24324A` |
+| Writing paper | `#FFFFFF` | `#1C2940` |
+| Primary text | `#202C3B` | `#F9F4E9` |
+| Secondary text | `#546173` | `#BDCADB` |
+| Action | `#17689E` | `#96CEF5` |
+| Text on action | `#FFFFFF` | `#172238` |
+| Selection fill | `#DCEEFA` | `#334E69` |
+| Keyboard focus | `#075DBE` | `#FFD46C` |
+| Success text | `#226743` | `#A9DFB5` |
+| Warning text | `#805413` | `#FFDC94` |
+| Error text | `#AD303E` | `#FFB4BC` |
+
+Use semantic tokens in components, never a decorative color as a substitute for
+an action or error token. Pair feedback text with its corresponding soft fill.
+Use real text and/or an icon as well as color. Keep control boundaries distinct;
+the lower-contrast divider token is only for decorative separation.
+
+Keep text on quiet, high-contrast areas. The home greeting and launcher labels
+are plain text over the open sky, with no greeting card, subtitle or label
+pills. The notebook text overlays the subtle cream paper asset. Do not add
+containers to solve visual hierarchy that the mockups already resolve with
+space. See [measured semantic pairs](contrast.md); raster surfaces still need
+a direct visual comparison at the actual laptop size.
+
+### Typography
+
+Use locally bundled **Nunito Variable** for system controls, with `ui-rounded,
+system-ui, sans-serif` as fallback. It matches the friendly rounded source
+family without relying on a Mac-only font. Default weight 500; labels 750–800;
+headings 750. No thin weights, all-caps child instructions or handwriting for
+functional reading content. Use live text rather than text embedded in artwork. The editor is the deliberate
+exception: locally bundled **Courier Prime Regular** creates the typewriter
+look explicitly requested in the new notebook reference.
+
+| Role | Desktop size | Line height | Use |
+| --- | --- | --- | --- |
+| Metadata | 14 px | 1.5 | Secondary save state and catalogue annotations |
+| Body | 18 px | 1.5 | Short explanations, document list |
+| Label | 20 px | 1.25 | App names and window title |
+| Section | 28 px | 1.2 | Dialog/empty-state headings |
+| Writing | 36 px | 1.6 | Courier Prime on the notebook page |
+| Display | 48 px | 1.2 | Main home heading |
+| Learning task | 56 px | 1.2 | Prominent arithmetic/letter task |
+
+A single-story letterform is not a promise of pedagogical suitability. The
+Letter-Lerner owner retains control of instructional glyph choices and must
+test `a`, `g`, `I`, `l`, `1`, `O`, `0`, umlauts and ß with its real content.
+Keep long text around 45–65 characters per line; the editor may naturally wrap
+earlier with its larger type. Respect browser zoom and text enlargement.
+
+### Space, shape and layers
+
+Spacing scale: 4, 8, 12, 16, 24, 32, 48, 64, 96 px. Use 8–12 px within a
+control, 16–24 px within a group, 32–48 px between groups, and 48–64 px around
+a desktop scene. Radius: 8 px small details, 14 px controls, 24 px windows,
+fully rounded label pills. The sculpted icon tile radius is part of the art.
+
+Interactive hit targets are at least **48 × 48 px**, and learning keys at
+least **56 × 56 px**, with 8 px minimum separation where adjacent targets
+could be confused. This project deliberately exceeds the baseline WCAG target
+size criterion. Shadows have three roles only: small control lift, broad
+window separation, modal elevation. No nested raised panels.
+
+Layers: wallpaper 0, active window 10, in-window notice 20, modal 30. Native
+dialog top-layer behavior takes precedence over CSS stacking. Do not place
+mascots, game overlays or app fullscreen controls above the home navigation.
+
+### Motion, sound and themes
+
+120 ms control feedback; 180 ms panel transition; 240 ms scene transition;
+ease `cubic-bezier(0.2, 0, 0, 1)`. Launcher hover may rise 4 px; pressing
+settles 1 px. Never loop decorative animation or shake errors. Honor
+`prefers-reduced-motion` by removing movement and animation. Loading must retain
+a static text explanation when motion is reduced.
+
+Day is the default. Evening changes semantic tokens and the companion
+wallpaper while keeping layout, app icon identity and control positions stable.
+Do not infer a sleep schedule or auto-switch while a child is typing. The
+catalogue toggle is a review control; where/how a parent selects a theme is a
+later implementation decision. Keep the clock face ivory in both themes.
+
+No UI sounds are required for the shell. Game audio follows explicit user
+activation and the app's volume preference. Never use sound alone for feedback.
+The mascot does not speak or interrupt writing.
+
+## Layout and navigation
+
+### Home
+
+One full-viewport scene, heading upper left, analog clock upper right, three
+large launchers in the calm central area. One click or Enter/Space launches an
+app; never require double-click. Match the fixed order Texten / Rechnen /
+Schreibspiel. Use 152 px image canvases at the reference desktop size. Preserve transparent margins and center the full image;
+do not crop or stretch the tile. Labels remain outside the images.
+
+The optional cat sits at a bottom corner, at most 132 px wide in the desktop
+specimen. It is decorative, has empty alternative text, receives no focus and
+cannot obscure controls. It is not required to access any function. Treat
+future interactive easter eggs as separate behavior, not a current dependency.
+
+The analog clock is a real rendered component, not one of the supplied raster
+clock poses. Hour angle = `(hours % 12) * 30 + minutes * 0.5`; minute angle =
+`minutes * 6`, measured clockwise from twelve. No second hand or ticking. A
+screen-reader label states the current local time; do not announce every tick.
+
+### Application window
+
+Single active window, maximum 1200 px wide, 24 px corners, at least 24 px outer
+margin on a desktop. Header minimum 72 px: **Zuhause** and house icon left,
+active app label centered, quiet app status right. The editor is the explicit exception described below: its menu contains home
+navigation, so the idle writing view has no permanent window header.
+No functional minimize/maximize controls or overlapping free-moving windows in
+v1. Do not imitate macOS traffic lights as dead decorative controls.
+
+The shell renders this header once. Embedded apps render only their content
+inside the remaining viewport. Internal back navigation belongs to the game;
+home navigation always belongs to the shell. Preserve focus when entering and
+returning, and put it back on the originating launcher after leaving an app.
+
+### Texten — the notebook reference
+
+Source 8 is authoritative for the editor. Also confirmed in the related task
+**Mockups fürs Lernbetriebssystem**: only paper, letters, typewriter typography
+and one small menu button. The ring-bound notebook replaces the previous
+application-window/editor-with-sidebar proposal.
+
+Use the transparent `notebook-paper.png` over the same lake wallpaper. At the
+1440 × 900 design target the notebook is approximately 1116 × 836 px, centered.
+Keep its aspect ratio, the rings and subtle paper texture. Text starts about
+9% from the left and 20% from the top of the notebook; the menu sits near the
+upper-right edge, below the rings. Use Courier Prime Regular at 36 px, line
+height 1.6, charcoal text, and a normal live caret.
+
+In the resting state show **only** the notebook, text/caret and menu button.
+No permanent title, sidebar, document list, home button, toolbar, save label,
+character count or explanatory UI copy. The native textarea has no visible
+box or focus halo; the caret marks the writing position. Menu controls retain
+clear keyboard focus.
+
+The 52 px circular menu control reveals Zuhause, Neuer Text and Meine Texte.
+Document selection and any document naming controls live inside this menu.
+Do not turn the small menu into a second persistent panel. Close it when an
+operation completes or when the user returns to writing. Escape closes it.
+Normal saved status stays quiet; a genuine save failure may surface a concise
+recovery notice, but never clear the writing or pretend that it is saved.
+
+The standalone design preview is [editor.html](editor.html). Its text is live
+but held in memory only. It demonstrates appearance and menu behavior, not
+production persistence. Plain text is the selected interaction style; rich-text
+formatting and quick-note tools are not added.
+
+### Target hardware and layout
+
+Optimize for the existing old MacBook Air in landscape Chrome kiosk mode. Use
+1440 × 900 as the current design/comparison viewport; confirm the actual running
+kiosk viewport during device integration. There is no mobile product scope.
+Do not spend implementation time on phone layouts or mobile test matrices.
+
+Scale the notebook as one proportional surface to fit the laptop display,
+retain a comfortable outer margin, and preserve the minimal composition.
+Avoid WebGL, animated blur, a full window manager or continuous effects. Use
+static art, one active application, local fonts and restrained interaction.
+The clock updates at minute-level frequency, without a ticking second hand.
+
+## Component and behavior catalogue
+
+| Component | Variants / states | Accessibility and behavior |
+| --- | --- | --- |
+| AppLauncher | Rest, hover, pressed, focus, unavailable | Button with visible app name; unavailable reason remains discoverable |
+| SystemWindow | Game, loading, failure | One header, home outside game content, meaningful title |
+| Button | Primary, secondary, quiet, destructive; disabled | Native button, one primary action per decision, visible focus |
+| IconButton | Back, home, audio, retry | 48 px target, accessible action name, 24 px Lucide icon |
+| SegmentedChoice | Day/evening, selected/unselected | Pressed buttons for independent specimen toggles; use proper radio/tabs pattern in product as appropriate |
+| TextField | Empty, filled, focused, invalid, disabled | Persistent label, associated error, no placeholder-only labels |
+| NotebookEditor | Empty, writing, menu open, recovery | Native textarea, Courier Prime, one menu; no resting chrome |
+| DocumentRow | Selected, unselected, long title | Appears only inside the editor menu; never a permanent shelf |
+| LearningKey | Available, selected, pressed | At least 56 px; selection uses shape/outline as well as color |
+| LetterSlot | Empty, filled, active, retry | Dashed outline for empty; text input/select alternative to dragging |
+| SaveStatus | Draft, saving, saved, failed | Polite announcements for meaningful changes, never every keystroke |
+| Notice | Info/warning, error, success, recovery | Short reason and next action; error persists until resolved |
+| Dialog | Trash confirmation, conflict/recovery | Labeled dialog, focus contained, Escape cancels, focus returns |
+| LoadingView | Indeterminate, bounded timeout | Real readiness only; no invented percentage; home remains active |
+| EmptyView | No documents, unavailable app | One explanation and a clear primary next action |
+| AnalogClock | Day/evening, local time | Consistent hand mapping and accessible time, not an image |
+| Companion | Optional peeking pose | Decorative, no focus, no blocked task or forced interaction |
+
+### State copy and recovery
+
+| Condition | German copy | Available action / rule |
+| --- | --- | --- |
+| No documents | Platz für deine erste Geschichte. | Neuer Text |
+| App starting | Einen Moment … | Zuhause remains active |
+| App unavailable / timed out | Das Spiel ist gerade nicht bereit. | Noch einmal; Zuhause |
+| App absent | Dieses Spiel ist noch nicht eingerichtet. | Zuhause; no installer shown to child |
+| Saving | Wird gespeichert … | Writing continues |
+| Durable save | Gespeichert | Check icon plus text |
+| Save failed | Dein Text wartet noch aufs Speichern. | Noch einmal; draft retained |
+| Recovered draft | Dein Text ist wieder da. | Weiter |
+| Conflicting revisions | Es gibt zwei Fassungen. | Ansehen; preserve both |
+| Move to trash | Text in den Papierkorb? | Behalten first; In den Papierkorb second |
+| Retry learning answer | Versuch es noch einmal. | No shame, negative score or shaking UI |
+| Future shutdown | Auf Wiedersehen! | Only after a real acknowledged device action |
+
+Do not use emergency red for an incorrect learning answer; error colors belong
+to data/process failures. Do not announce success or show progress without
+evidence. Add concise explanatory adult diagnostics outside the child surface.
+
+## Independent app integration
+
+Keep the app/runtime contract in [app-contract.md](../app-contract.md). Share
+tokens as a pinned design version, not runtime CSS fetched from GitHub. Each
+app bundles local fonts, required art and its own styles. The shell cannot
+inject styling into the separate-origin iframe.
+
+`src/app.css` includes catalogue styles and must not be blindly copied into a
+game. Consume `design/tokens.json` or extract its base/theme custom properties
+into that app's existing central stylesheet. Keep reusable names prefixed
+`--aos-`; application-specific tokens stay in the app's own namespace.
+
+Extend the proposed bridge only when both peers support it: shell sends
+`appearance` after the app's validated `ready` message, with protocol version,
+design version `1.0.0`, theme `day` or `evening`, and reduced-motion preference.
+The app accepts only known enums and its allowlisted parent origin. Do not send
+arbitrary CSS or URLs. An older app retains its own supported appearance; the
+shell records the mismatch for administration. No existing Letter-Lerner
+support for this bridge is claimed.
+
+Changing a semantic token's meaning or removing it requires a major design
+version. Additions are minor; corrected values/assets without contract changes
+are patches. Record a visual comparison whenever a consuming app updates.
+
+## Scope and release acceptance
+
+This system fully defines the first shell/editor design and integration-facing
+components. Game mechanics remain in their own projects. Notes, rich text,
+photos/music, parent settings UI and shutdown controls are extension patterns
+only, not part of the committed application scope.
+
+Before shipping an implementation, verify the actual laptop composition against the supplied mockups, typing,
+menu navigation, relevant save/app behavior and real app embedding. Keep
+verification proportional to the change; phone layouts and broad mobile tests
+are outside this project. This design catalogue does not certify kiosk
+restrictions, data persistence or complete WCAG conformance.
+
+## Sources
+
+- [User references and asset provenance](assets.md)
+- [W3C text contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
+- [W3C target size](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)
+- [MDN reduced motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion)
+- [Nunito source and license](https://github.com/google/fonts/tree/5e35378e6bda803962ee6fd257e444a7d459660d/ofl/nunito)
+- [Lucide icon guidance](https://lucide.dev/guide/)

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-theme="day">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annelie OS — Design system</title>
+  <meta name="description" content="The Annelie OS design system: foundations, components, states and independent app integration.">
+  <link rel="stylesheet" href="../../src/app.css">
+  <script src="catalogue.js" type="module"></script>
+</head>
+<body>
+  <a class="aos-sr-only" href="#main">Skip to content</a>
+  <header class="catalogue-header">
+    <div><div class="catalogue-brand">Annelie OS</div><div class="catalogue-kicker">Design system · 1.0.0</div></div>
+    <fieldset class="aos-segment" aria-label="Preview appearance">
+      <button class="aos-button" type="button" data-set-theme="day" aria-pressed="true"><span class="aos-icon" data-icon="sun" aria-hidden="true"></span>Day</button>
+      <button class="aos-button" type="button" data-set-theme="evening" aria-pressed="false"><span class="aos-icon" data-icon="moon" aria-hidden="true"></span>Evening</button>
+    </fieldset>
+  </header>
+  <nav class="catalogue-nav" aria-label="Design system sections">
+    <a href="#home">Home</a><a href="#foundations">Foundations</a><a href="#editor">Editor</a><a href="#components">Components</a><a href="#states">States</a><a href="#integration">Integration</a>
+  </nav>
+  <main id="main" class="catalogue-main">
+    <div class="catalogue-intro">
+      <div><div class="catalogue-kicker">Lake · Paper · Play</div><h1>Annelies Computer.</h1></div>
+      <p>A shared visual language for three familiar tools. Based on David’s supplied references, with reusable assets and precise implementation rules.</p>
+    </div>
+    <section id="home" aria-label="Home screen design" lang="de">
+      <div class="aos-desktop">
+        <div class="aos-desktop-top">
+          <div class="aos-desktop-greeting"><h2>Annelies<br>Computer</h2></div>
+          <svg class="aos-clock" viewBox="0 0 200 200" role="img" aria-label="Analoge Uhr" data-clock>
+            <title>Analoge Uhr</title><circle class="aos-clock-rim" cx="100" cy="100" r="94"/>
+            <g data-clock-face></g>
+            <line class="aos-clock-hour" x1="100" y1="100" x2="100" y2="53" data-hour-hand/>
+            <line class="aos-clock-minute" x1="100" y1="100" x2="100" y2="31" data-minute-hand/>
+            <circle class="aos-clock-pin" cx="100" cy="100" r="8"/>
+          </svg>
+        </div>
+        <div class="aos-launchers">
+          <button class="aos-launcher" type="button" data-launch="text"><img src="../../static/design/icon-text.png" alt="" width="152" height="152"><span>Texten</span></button>
+          <button class="aos-launcher" type="button" data-launch="math"><img src="../../static/design/icon-math.png" alt="" width="152" height="152"><span>Rechnen</span></button>
+          <button class="aos-launcher" type="button" data-launch="letters"><img src="../../static/design/icon-letters.png" alt="" width="152" height="152"><span>Schreibspiel</span></button>
+        </div>
+        <img class="aos-companion" src="../../static/design/cat-peek.png" alt="" width="132" height="88">
+      </div>
+    </section>
+    <p class="catalogue-caption">Interactive design specimen. The clock shows local time. App buttons open the editor specimen or an unavailable-app example; no learning game is installed by this catalogue.</p>
+
+    <section id="foundations" class="catalogue-section">
+      <div class="catalogue-section-heading"><h2>01 / Foundations</h2><p>Pastels belong to the landscape and playful objects. Text and actions use separate, contrast-tested semantic colors.</p></div>
+      <div class="catalogue-palette">
+        <div class="catalogue-swatch" data-color="sky"><div class="catalogue-swatch-color"></div><strong>Sky</strong><span>#A1D3E9</span></div>
+        <div class="catalogue-swatch" data-color="cream"><div class="catalogue-swatch-color"></div><strong>Cream</strong><span>#FFF1D2</span></div>
+        <div class="catalogue-swatch" data-color="sage"><div class="catalogue-swatch-color"></div><strong>Sage</strong><span>#A6C598</span></div>
+        <div class="catalogue-swatch" data-color="lake"><div class="catalogue-swatch-color"></div><strong>Lake</strong><span>#548D7D</span></div>
+        <div class="catalogue-swatch" data-color="blue"><div class="catalogue-swatch-color"></div><strong>Blue</strong><span>#8FC7FA</span></div>
+        <div class="catalogue-swatch" data-color="yellow"><div class="catalogue-swatch-color"></div><strong>Yellow</strong><span>#FFCE62</span></div>
+        <div class="catalogue-swatch" data-color="coral"><div class="catalogue-swatch-color"></div><strong>Coral</strong><span>#FF7B80</span></div>
+        <div class="catalogue-swatch" data-color="teal"><div class="catalogue-swatch-color"></div><strong>Teal</strong><span>#31BEC1</span></div>
+      </div>
+      <div class="catalogue-grid catalogue-section">
+        <article class="catalogue-panel"><h3>Two purposeful type families</h3><div class="catalogue-type-display" lang="de">Hallo Annelie.</div><div class="catalogue-type-writing" lang="de">Äpfel, Grüße und große Ideen.</div><p>Nunito for the system. Courier Prime for the typewriter-like editor. Both bundled locally. No decorative text outside the writing itself.</p><div class="catalogue-type-meta">14 px · metadata only, never the sole label of a child’s action.</div></article>
+        <article class="catalogue-panel"><h3>Shape, space and touch</h3><div class="catalogue-row"><button class="aos-button" type="button" disabled>48 px minimum</button><span class="aos-key">A</span><span class="aos-slot" role="img" aria-label="Empty answer slot"></span></div><p>4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 px spacing. Controls 14 px radius, windows 24 px, labels pill-shaped. Shadows establish only three levels: controls, windows, dialogs.</p><p>Upper-left light and soft matte surfaces. No continuous bouncing, bright glass glare or dense ornamental UI.</p></article>
+      </div>
+    </section>
+
+    <section id="editor" class="catalogue-section">
+      <div class="catalogue-section-heading"><h2>02 / Texten</h2><p>The supplied spiral-notebook reference is the editor target: paper, typewriter text and one menu button.</p></div>
+      <iframe class="catalogue-editor-frame" src="editor.html" title="Minimal notebook editor preview"></iframe>
+      <p class="catalogue-caption"><a href="editor.html">Open the full-screen editor preview</a> · No sidebar, title field, toolbar or permanent save counter. Documents and home are inside the small menu. Preview text is held in memory only.</p>
+    </section>
+
+    <section id="components" class="catalogue-section">
+      <div class="catalogue-section-heading"><h2>03 / Components</h2><p>Consistent controls for the shell and separately hosted learning apps. Labels stay short; focus stays visible.</p></div>
+      <div class="catalogue-grid">
+        <article class="catalogue-panel"><h3>Actions &amp; interaction states</h3><div class="catalogue-row" lang="de"><button class="aos-button aos-button-primary" type="button" data-demo-action>Weiter<span class="aos-icon" data-icon="chevron-right" aria-hidden="true"></span></button><button class="aos-button" type="button" data-demo-action>Zurück</button><button class="aos-button aos-button-quiet" type="button" data-demo-action>Später</button></div><div class="catalogue-row"><button class="aos-button aos-hover-example" type="button" data-demo-action>Hover</button><button class="aos-button aos-focus-example" type="button" data-demo-action>Focus</button><button class="aos-button aos-pressed-example" type="button" data-demo-action>Pressed</button><button class="aos-button" type="button" disabled>Unavailable</button></div><p class="catalogue-type-meta" id="action-feedback" role="status">Use Tab to inspect the real keyboard focus.</p></article>
+        <article class="catalogue-panel"><h3>Fields &amp; validation</h3><label class="aos-field" lang="de"><span>Titel</span><input class="aos-input" placeholder="Mein neuer Text"></label><label class="aos-field" lang="de"><span>Titel · Fehlerbeispiel</span><input class="aos-input" value="" aria-invalid="true" aria-describedby="title-error"><small class="aos-field-error" id="title-error">Gib deinem Text einen Namen.</small></label></article>
+        <article class="catalogue-panel"><h3>Utility icons &amp; confirmation</h3><div class="catalogue-row" lang="de"><button class="aos-button aos-icon-button" type="button" aria-label="Zurück" data-demo-action><span class="aos-icon" data-icon="arrow-left" aria-hidden="true"></span></button><button class="aos-button aos-icon-button" type="button" aria-label="Ton an" aria-pressed="true" id="sound-toggle"><span class="aos-icon" data-icon="volume-2" aria-hidden="true"></span></button><button class="aos-button aos-button-danger" type="button" id="show-trash"><span class="aos-icon" data-icon="trash-2" aria-hidden="true"></span>In den Papierkorb</button></div><p>Lucide, 24 px, 2-unit stroke. Decorative icons inherit the label color. The sound toggle demonstrates a state only; no audio is played.</p><p id="trash-feedback" role="status"></p></article>
+        <article class="catalogue-panel"><h3>Learning controls</h3><fieldset class="catalogue-row catalogue-fieldset" aria-label="Selectable sample numbers"><button class="aos-key" type="button" aria-pressed="false" data-number>3</button><button class="aos-key" type="button" aria-pressed="true" data-number>4</button><button class="aos-key" type="button" aria-pressed="false" data-number>5</button></fieldset><div class="catalogue-row"><span class="aos-slot">S</span><span class="aos-slot" role="img" aria-label="Empty answer slot"></span><span class="aos-key">A</span></div><p>Minimum 56 px learning keys. Selected state uses outline and fill. Letter placement must also work by selecting, not only dragging.</p></article>
+      </div>
+    </section>
+
+    <section id="states" class="catalogue-section">
+      <div class="catalogue-section-heading"><h2>04 / System states</h2><p>Keep home available. Keep writing recoverable. Explain the next useful action without blaming the child.</p></div>
+      <div class="catalogue-preview-controls"><label for="app-state">App-state specimen</label><select id="app-state"><option value="unavailable">Unavailable</option><option value="loading">Loading</option><option value="empty">No documents yet</option></select></div>
+      <div class="aos-window" lang="de">
+        <header class="aos-window-header"><button class="aos-button aos-button-quiet" type="button" data-home><span class="aos-icon" data-icon="house" aria-hidden="true"></span>Zuhause</button><h3 class="aos-window-title" id="sample-app-title">Schreibspiel</h3><span class="aos-status">Vorschau</span></header>
+        <div class="aos-empty" id="app-unavailable"><img src="../../static/design/icon-letters.png" alt="" width="112" height="112" data-state-icon><h3>Das Spiel ist gerade nicht bereit.</h3><p>Du kannst es noch einmal versuchen.</p><button class="aos-button aos-button-primary" type="button" id="retry-app"><span class="aos-icon" data-icon="rotate-ccw" aria-hidden="true"></span>Noch einmal</button><p id="retry-feedback" role="status"></p></div>
+        <div class="aos-empty" id="app-loading" hidden><img src="../../static/design/icon-letters.png" alt="" width="112" height="112" data-state-icon><h3>Einen Moment …</h3><progress class="aos-progress" aria-label="Programm wird geöffnet"></progress><p>Das Spiel wird geöffnet.</p></div>
+        <div class="aos-empty" id="app-empty" hidden><img src="../../static/design/icon-text.png" alt="" width="112" height="112"><h3>Platz für deine erste Geschichte.</h3><button class="aos-button aos-button-primary" type="button" data-start-writing>Neuer Text</button></div>
+      </div>
+      <div class="catalogue-stack catalogue-section" lang="de"><div class="aos-notice" data-tone="success"><span><strong>Dein Text ist wieder da.</strong> Du kannst weiterschreiben.</span><button class="aos-button" type="button" data-start-writing>Weiter</button></div><div class="aos-notice"><span><strong>Es gibt zwei Fassungen.</strong> Beide Texte bleiben erhalten.</span><button class="aos-button" type="button" id="show-conflict">Ansehen</button></div></div>
+    </section>
+
+    <section class="catalogue-section" aria-labelledby="assets-title"><div class="catalogue-section-heading"><h2 id="assets-title">05 / Asset family</h2><p>Separate transparent masters. No labels baked into images, no sprite-sheet cropping, no runtime network dependency.</p></div><div class="catalogue-assets"><figure><img src="../../static/design/icon-text.png" alt="Blue typewriter on an ivory tile"><figcaption>Texten<br>icon-text.png</figcaption></figure><figure><img src="../../static/design/icon-math.png" alt="Counting discs, plus and minus on an ivory tile"><figcaption>Rechnen<br>icon-math.png</figcaption></figure><figure><img src="../../static/design/icon-letters.png" alt="Colored A B C on an ivory tile"><figcaption>Schreibspiel<br>icon-letters.png</figcaption></figure></div></section>
+
+    <section id="integration" class="catalogue-section"><div class="catalogue-section-heading"><h2>06 / One system, independent apps</h2><p>The visual contract is shared. Each program keeps its own runtime, source and data.</p></div><table class="catalogue-table"><thead><tr><th>Shell owns</th><th>Each learning app owns</th></tr></thead><tbody><tr><td>Wallpaper, home, app launch, outer window and recovery states</td><td>Game layout, input, feedback, progress and embedded content</td></tr><tr><td>Theme choice and design-system version</td><td>The same semantic tokens, applied inside its own page</td></tr><tr><td>Persistent Zuhause button and one active app</td><td>No duplicate title bar or nested desktop in embedded mode</td></tr></tbody></table><p class="catalogue-caption">Versioned CSS tokens are provided in src/app.css and design/tokens.json. See the specification for integration, capability negotiation and exact acceptance criteria.</p></section>
+    <footer class="catalogue-footer"><a href="system.md">Design specification</a><a href="../../design/tokens.json">Token export</a><a href="assets.md">Assets &amp; provenance</a><a href="verification.md">Verification</a><a href="../agent-brief.md">Implementation brief</a></footer>
+  </main>
+  <dialog class="aos-dialog" id="trash-dialog" lang="de" aria-labelledby="trash-heading"><h2 id="trash-heading">Text in den Papierkorb?</h2><p>Du kannst ihn später wiederholen.</p><form method="dialog" class="aos-dialog-actions"><button class="aos-button" type="submit" value="cancel" autofocus>Behalten</button><button class="aos-button aos-button-danger" type="submit" value="trash">In den Papierkorb</button></form></dialog>
+  <dialog class="aos-dialog" id="conflict-dialog" lang="de" aria-labelledby="conflict-heading"><h2 id="conflict-heading">Beide Fassungen bleiben da.</h2><p>Im fertigen Editor stehen beide Texte zur Auswahl. Dieses Beispiel zeigt den Hinweis und verändert keine Texte.</p><form method="dialog" class="aos-dialog-actions"><button class="aos-button aos-button-primary" type="submit" autofocus>Verstanden</button></form></dialog>
+</body>
+</html>
