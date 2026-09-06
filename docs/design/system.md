@@ -170,8 +170,11 @@ screen-reader label states the current local time; do not announce every tick.
 ### Application window
 
 Single active window, maximum 1200 px wide, 24 px corners, at least 24 px outer
-margin on a desktop. Header minimum 72 px: **Zuhause** and house icon left,
-active app label centered, quiet app status right. The editor is the explicit exception described below: its menu contains home
+margin on a desktop. The header is 32 px high, with 12 px horizontal padding:
+a 16 px house icon in a 28 px button on the left (accessible name Zuhause),
+a centered 13 px medium-weight app title and a quiet 12 px status on the right.
+Use a fine divider and no raised button styling. This compact desktop navigation
+is an explicit exception to the general 48 px action-target rule. The editor is the explicit exception described below: its menu contains home
 navigation, so the idle writing view has no permanent window header.
 No functional minimize/maximize controls or overlapping free-moving windows in
 v1. Do not imitate macOS traffic lights as dead decorative controls.

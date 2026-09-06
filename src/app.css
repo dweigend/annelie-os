@@ -68,7 +68,7 @@
 	--aos-control-size: 48px;
 	--aos-control-large: 56px;
 	--aos-icon-size: 24px;
-	--aos-window-bar: 72px;
+	--aos-window-bar: 32px;
 	--aos-window-max: 1200px;
 	--aos-shadow-control: 0 2px 4px rgb(40 50 60 / 8%);
 	--aos-shadow-window:
@@ -350,12 +350,12 @@ img {
 	overflow: clip;
 }
 .aos-window-header {
-	min-height: var(--aos-window-bar);
+	height: var(--aos-window-bar);
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
 	align-items: center;
-	gap: var(--aos-space-3);
-	padding: var(--aos-space-3) var(--aos-space-4);
+	gap: 8px;
+	padding: 0 12px;
 	border-bottom: 1px solid var(--aos-color-border);
 }
 .aos-window-header > :first-child {
@@ -364,9 +364,32 @@ img {
 .aos-window-header > :last-child {
 	justify-self: end;
 }
+.aos-window-header .aos-button {
+	min-height: 28px;
+	min-width: 28px;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border-radius: 4px;
+	box-shadow: none;
+}
+.aos-window-header .aos-button:focus-visible {
+	outline-offset: -2px;
+	box-shadow: none;
+}
+.aos-window-header .aos-icon {
+	width: 16px;
+	height: 16px;
+}
+.aos-window-header .aos-status {
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1;
+}
 .aos-window-title {
-	font-size: var(--aos-text-label);
-	font-weight: 800;
+	font-size: 13px;
+	line-height: 1;
+	font-weight: 600;
 }
 .aos-desktop {
 	position: relative;
