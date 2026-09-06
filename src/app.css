@@ -452,13 +452,6 @@ img {
 	object-fit: contain;
 	transition: transform var(--aos-duration-normal) var(--aos-ease);
 }
-.aos-launcher span {
-	font-size: var(--aos-text-label);
-	font-weight: 800;
-	background: transparent;
-	padding: 4px 8px;
-	white-space: nowrap;
-}
 .aos-launcher:hover img {
 	transform: translateY(-4px);
 }

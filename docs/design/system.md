@@ -78,9 +78,9 @@ an action or error token. Pair feedback text with its corresponding soft fill.
 Use real text and/or an icon as well as color. Keep control boundaries distinct;
 the lower-contrast divider token is only for decorative separation.
 
-Keep text on quiet, high-contrast areas. The home greeting and launcher labels
-are plain text over the open sky, with no greeting card, subtitle or label
-pills. The notebook text overlays the subtle cream paper asset. Do not add
+Keep text on quiet, high-contrast areas. The home greeting is plain text over the open sky, with no greeting card
+or subtitle. Program launchers show only their icons, without captions or
+label pills. Their accessible names remain available to assistive technology. The notebook text overlays the subtle cream paper asset. Do not add
 containers to solve visual hierarchy that the mockups already resolve with
 space. See [measured semantic pairs](contrast.md); raster surfaces still need
 a direct visual comparison at the actual laptop size.
@@ -154,7 +154,8 @@ One full-viewport scene, heading upper left, analog clock upper right, three
 large launchers in the calm central area. One click or Enter/Space launches an
 app; never require double-click. Match the fixed order Texten / Rechnen /
 Schreibspiel. Use 152 px image canvases at the reference desktop size. Preserve transparent margins and center the full image;
-do not crop or stretch the tile. Labels remain outside the images.
+do not crop or stretch the tile. Do not display text below the icons. Give each
+launcher its stable app name through `aria-label`.
 
 The optional cat sits at a bottom corner, at most 132 px wide in the desktop
 specimen. It is decorative, has empty alternative text, receives no focus and
