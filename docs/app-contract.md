@@ -1,6 +1,8 @@
 # Independent local application contract
 
-Status: proposed v1, to be validated against real Letter-Lerner before freezing.
+Status: version 1 implemented and locally verified with the Letter-Lerner integration release. See [release verification](release-report.md).
+
+Development shell port: 3000. The Ubuntu bundle keeps the existing kiosk port 8765 and configures that exact parent origin in Letter-Lerner.
 
 ## Ownership and installation
 
@@ -21,28 +23,22 @@ Removing registration or uninstalling binaries must not delete authored data.
 
 ## Manifest proposal
 
-The following is illustrative configuration, not an implemented or currently
-supported Letter-Lerner endpoint:
+The following is the implemented manifest shape. Store an array of these records in the external app configuration:
 
 ```json
 {
-  "schemaVersion": 1,
   "id": "letter-lerner",
   "label": "Letter-Lerner",
-  "icon": "book-open",
   "origin": "http://127.0.0.1:3001",
   "entryPath": "/?embedded=1",
   "healthPath": "/healthz",
-  "bridgeVersion": 1,
-  "release": "pinned-release-or-commit"
+  "bridgeVersion": 1
 }
 ```
 
-Validate schemas, unique IDs/ports, supported bridge versions, local origins,
-relative paths and a finite icon allowlist. Keep user-editable runtime manifests
+The registry validates IDs, unique origins, bridge version, loopback origins and relative paths. Icons and labels belong to the shell; release revisions are recorded in each package. Keep user-editable runtime manifests
 outside the app bundle; ship examples only. An app can run standalone without
-Annelie OS. Installation registers the actual release, not the illustrative
-string above. The editor is a built-in route, not an extra server.
+Annelie OS. The installer records the deployed release through revision-specific directories. The editor is a built-in route, not an extra server.
 
 ## Embedding and navigation
 
@@ -146,7 +142,7 @@ shell's own navigation. Proposed envelope:
 }
 ```
 
-Initial messages: app-to-shell `ready` and `request-home`. Add shell-to-app
+Implemented message: app-to-shell `ready`. Closing uses the shell X directly. Add shell-to-app
 initialization only if needed for theme negotiation; do not create a generic
 RPC framework. Validate envelope schema, `event.origin`, expected iframe
 `event.source`, active app ID and protocol version. Send to an exact

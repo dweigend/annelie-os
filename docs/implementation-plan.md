@@ -1,5 +1,8 @@
 # Annelie OS implementation plan
 
+> Historical planning baseline. For the implemented release, current scope and
+> remaining device acceptance, read [the release report](release-report.md).
+
 Date: 2026-09-06. Status: visual direction consolidated in the v1 design system;
 application implementation and editor scope confirmation remain next.
 

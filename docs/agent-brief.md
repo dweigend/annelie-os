@@ -1,5 +1,8 @@
 # Local implementation agent brief
 
+> Historical planning baseline. For the implemented release, current scope and
+> remaining device acceptance, read [the release report](release-report.md).
+
 David supplied eight initial images and ten startup references as the visual direction. Use the consolidated v1
 system in `docs/design/system.md`, `src/app.css`, `design/tokens.json`, and the
 interactive `docs/design/catalogue.html`. No application implementation agent

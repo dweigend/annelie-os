@@ -1,5 +1,8 @@
 # Annelie OS: design handover and build plan
 
+> Historical planning baseline. For the implemented release, current scope and
+> remaining device acceptance, read [the release report](release-report.md).
+
 Date: 2026-09-06. Reviewed application revision: `67b9930`.
 
 ## Current outcome
