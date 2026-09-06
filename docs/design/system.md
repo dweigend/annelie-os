@@ -42,7 +42,7 @@ Keep internal app IDs and repository names unchanged.
 | 04 System board | Main composition, lake palette, generous space | Replace promotional paragraphs with a small number of real controls |
 | 05 App family | Ivory tiles, blue typewriter, arithmetic discs, colored ABC | Typewriter identifies Texten; pencil remains the future quick-note symbol |
 | 06 Clock study | Cream dial, red/blue hands, yellow center | Short red = hours; long blue = minutes, consistently and mathematically correct |
-| 07 Character sheet | Existing charcoal/cream cat identity | Use one quiet pose at a time, outside the work area |
+| 07 Character sheet | Existing charcoal/cream cat identity | Retained as an unused reference; no mascot in the current home scene |
 | 08 Notebook editor | Ring-bound paper, typewriter face, one menu control | Supersedes the earlier sidebar and framed-editor design |
 
 Visible images are evidence of style, not instructions to add every depicted
@@ -136,7 +136,7 @@ settles 1 px. Never loop decorative animation or shake errors. Honor
 `prefers-reduced-motion` by removing movement and animation. Loading must retain
 a static text explanation when motion is reduced.
 
-Day is the default. Evening changes semantic tokens and the companion
+Day is the default. Evening changes semantic tokens and the landscape
 wallpaper while keeping layout, app icon identity and control positions stable.
 Do not infer a sleep schedule or auto-switch while a child is typing. The
 catalogue toggle is a review control; where/how a parent selects a theme is a
@@ -157,10 +157,9 @@ Schreibspiel. Use 152 px image canvases at the reference desktop size. Preserve 
 do not crop or stretch the tile. Do not display text below the icons. Give each
 launcher its stable app name through `aria-label`.
 
-The optional cat sits at a bottom corner, at most 132 px wide in the desktop
-specimen. It is decorative, has empty alternative text, receives no focus and
-cannot obscure controls. It is not required to access any function. Treat
-future interactive easter eggs as separate behavior, not a current dependency.
+The home scene has no cat or decorative mascot. Keep attention on the three
+program icons and the calm landscape. Retain the character artwork as an unused
+reference asset; do not place it elsewhere automatically.
 
 The analog clock is a real rendered component, not one of the supplied raster
 clock poses. Hour angle = `(hours % 12) * 30 + minutes * 0.5`; minute angle =

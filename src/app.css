@@ -481,13 +481,6 @@ img {
 .aos-launcher:active img {
 	transform: translateY(-1px);
 }
-.aos-companion {
-	position: absolute;
-	right: var(--aos-space-6);
-	bottom: -2px;
-	width: 132px;
-	pointer-events: none;
-}
 .aos-empty {
 	text-align: center;
 	padding: var(--aos-space-8) var(--aos-space-5);

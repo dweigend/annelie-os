@@ -7,8 +7,8 @@ the earlier exploratory options below.
 ## Decision
 
 The selected direction combines the lake setting from source 4, the tactile
-app family from source 5, the analog clock from source 6 and the cat from source
-7. The consolidated design defines day/evening colors, local Nunito typography,
+app family from source 5 and the analog clock from source 6. The cat from
+source 7 is retained as a reference asset but removed from the home scene. The consolidated design defines day/evening colors, local Nunito typography,
 spacing, controls, a shared window, editor patterns, recovery states and app
 integration. The exact v1 refinements are the result of the design task and
 remain reviewable; do not describe them as separately user-approved details.
