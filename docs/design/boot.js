@@ -1,4 +1,4 @@
-/** Selects a static startup design specimen, without pretending to boot Ubuntu. */
+/** Selects a static identity reference; the kiosk opens home, never this page. */
 const scenes = new Set([
 	"day",
 	"sunrise",

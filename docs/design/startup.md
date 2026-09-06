@@ -1,7 +1,16 @@
-# Startup identity and backgrounds
+# System identity and kiosk backgrounds
 
 David explicitly selected the surfacing whale as the official Annelie OS logo
 and asked to adopt the supplied startup backgrounds on 2026-09-06.
+
+## Existing system startup
+
+David confirmed that the operating-system startup, including its blinking dots,
+is already configured. Annelie OS begins where the Chrome kiosk starts and
+opens the home screen with its three program icons directly. Do not implement
+another splash, logo sequence, loading-dot screen or mandatory welcome step.
+Preserve the existing operating-system setup; no boot installation is required
+by this design task. This is user-confirmed state, not a new hardware audit.
 
 ## Identity
 
@@ -12,7 +21,7 @@ the silhouette, colors and proportions. No cat or substitute mascot.
 The transparent emblem was prepared with the built-in GPT Image tool from
 `references/boot/01-day.png`. It is a derived reusable master, not a pixel-exact
 crop or a new approved redesign. The unchanged source remains the authority
-if a future rendition drifts. The runtime wordmark uses local Nunito, weight
+if a future rendition drifts. The static identity specimen uses local Nunito, weight
 800 for Annelie and 300 for OS, separately from the emblem. This is live text,
 not an exact reproduction of the illustrated source lettering.
 
@@ -36,39 +45,27 @@ button labels and greetings are not independent feature instructions.
 All backgrounds are 1672 × 941. Lettering, emblem and loading UI were removed
 with GPT Image edits to prepare reusable backgrounds. Preserve the supplied
 composition, colors and painted texture; minor generated variations are possible.
-Day is the default startup and home background. The existing evening theme now
-uses the night landscape. Other scenes are explicit preview options, with no
-random wallpaper rotation or automatic time-based switching.
+Day is the initial home background. All seven landscapes are available through
+[startup.html](startup.html), which opens `home.html?scene=<key>`. The selection
+is stored in this browser under `annelie-os.preview.background` and reapplied
+before the next home paint. If storage is unavailable, the explicit selection
+still works for the current visit. Unknown scene keys fall back to a valid saved
+preference or day. No random rotation or automatic time-based switching.
 
-The gallery in [startup.html](startup.html) links to all seven scenes and the
-ten unchanged originals. [boot.html](boot.html) composes the live logo, wordmark
-and an indeterminate loading indicator; `?scene=night` selects another scene.
+A small sun icon on home opens the background chooser. The chooser belongs to
+the design preview; the production app should store the same seven choices in
+its normal appearance preferences. Dark scenes use light system text. The
+editor remains a plain white page with typewriter typography in every scene.
 
-## Composition and behavior
+[boot.html](boot.html) is retained only as a static logo/background reference.
+It has no loading animation and is not a kiosk entry route. Its small navigation
+links are preview conveniences. The original screenshots preserve the supplied
+OS boot motifs for reference without recreating that process in the web app.
 
-Use one full-viewport background and one centered logo/wordmark group, slightly
-above the vertical midpoint. No card, window frame, title bar or shadow behind
-the identity. Use a dark wordmark on light scenes and white on dark scenes.
-The whale master stays unchanged. Use contain for the logo and cover for the
-background; compare at the MacBook Air landscape viewport.
-
-Three small dots may gently change opacity while startup is pending; they are
-an indeterminate activity signal, never a fabricated percentage or stage count.
-Honor reduced motion with static dots. Do not rotate or bounce the whale, add
-continuous scene animation, or impose an artificial minimum startup delay.
-
-In the finished shell, leave startup as soon as the shell and its local document
-store are ready. Learning services start independently: one unavailable game
-must not prevent entry to the home screen or editor. On a genuine shell startup
-failure, stop loading and offer one concise recovery action. Do not silently
-loop a broken startup indefinitely.
-
-The small navigation links in the preview are review conveniences only. They
-must not appear in the installed startup screen. This task supplies design and
-assets, not a working Ubuntu boot splash or service-readiness implementation.
-Ubuntu boot/session integration belongs to the device repository. Reuse these
-assets there, validate the real boot sequence and avoid flashing a second logo
-or adding a mandatory welcome click.
+The official whale master remains separate from the backgrounds. Preserve its
+proportions and use contain for identity previews. Backgrounds use cover and
+are compared at the MacBook Air landscape viewport. Learning services remain
+independent: an unavailable game must not prevent opening home or the editor.
 
 ## Provenance
 

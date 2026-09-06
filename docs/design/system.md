@@ -146,14 +146,14 @@ No UI sounds are required for the shell. Game audio follows explicit user
 activation and the app's volume preference. Never use sound alone for feedback.
 The mascot does not speak or interrupt writing.
 
-## Official identity and startup
+## Official identity and kiosk entry
 
-The surfacing whale is the official logo. Use the separate transparent master
-and the seven supplied-background derivatives defined in [startup.md](startup.md).
-Day/night home scenes now use that same landscape family. Startup has no window
-chrome: just the whale, Annelie OS wordmark and a small indeterminate activity
-indicator. The implementation must use real readiness, with no artificial delay.
-See [all startup motifs](startup.html) and the preserved originals.
+The surfacing whale is the official logo. The operating-system startup and its
+blinking dots are already configured, as confirmed by David. Annelie OS opens
+home directly when the kiosk starts, with no second splash or welcome screen.
+The static logo reference is documentation only, never an app entry point.
+Use the seven selectable landscapes described in [startup.md](startup.md) and
+[the background chooser](startup.html). Preserve the existing OS startup setup.
 
 ## Layout and navigation
 

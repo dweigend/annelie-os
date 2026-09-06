@@ -55,6 +55,7 @@ production implementation.
 ## Startup identity
 
 The surfacing whale is the official logo. Open
-[the seven startup motifs](docs/design/startup.html) or
-[the startup preview](docs/design/boot.html) through the local preview server.
-See [startup design rules](docs/design/startup.md) for assets and implementation.
+[the seven home backgrounds](docs/design/startup.html) or
+[the static logo reference](docs/design/boot.html) through the local preview server.
+OS startup is already configured; the kiosk opens home directly.
+See [kiosk entry and background rules](docs/design/startup.md) for assets and implementation.

@@ -45,6 +45,8 @@ by the available tools, so this update handles the visible UI instructions.
 
 Ten supplied originals are preserved. The reusable whale has actual alpha;
 seven backgrounds are separate 1672 × 941 images with no baked wordmark or
-progress UI. The day/night home backgrounds use the new family. The preview
-selects only allowlisted scenes and provides indeterminate activity, not a
-simulated boot percentage. Real Ubuntu boot and readiness remain unimplemented.
+progress UI. The day/night home backgrounds use the new family. Home
+selects only allowlisted backgrounds and remembers the choice in this browser.
+The web loading dots were removed. David confirmed that OS startup is already
+configured; this update does not modify or re-audit that setup. Kiosk entry
+must go directly to home.

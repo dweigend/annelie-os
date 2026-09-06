@@ -25,11 +25,12 @@ semantic tokens and component patterns. Treat the catalogue as a design specimen
 not finished application code. Confirm editor scope proposals still left open;
 formatting buttons in source images alone do not approve a rich-text editor.
 
-Use the official surfacing-whale identity and startup backgrounds described in
-`docs/design/startup.md`. Keep the logo, background, live wordmark and loading
-state separate. Leave startup on actual shell/storage readiness, without waiting
-for optional games or inserting a welcome click. Ubuntu splash integration
-remains the device project's responsibility.
+The operating-system startup and blinking-dot screen are already configured.
+Annelie OS starts at the Chrome kiosk stage and must open home directly. Do not
+add a second splash, loading-dot sequence, welcome click or timed delay; preserve
+the existing OS setup. Use the seven selectable backgrounds and official whale
+identity described in `docs/design/startup.md`. The static `boot.html` reference
+is not the kiosk entry point. Do not wait for optional games before showing home.
 
 Prove integration with the real Letter-Lerner on a separate loopback port early.
 Keep game code and game-specific integration changes in its own repository;

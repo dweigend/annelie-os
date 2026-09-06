@@ -27,3 +27,11 @@
 - This is a local application project. Ubuntu session configuration, Chrome
   policies and device installation belong to the separate device repository.
   Do not change the target machine as part of local UI development.
+
+## Existing startup boundary
+
+David confirmed that OS startup and its blinking-dot screen are already set up.
+Annelie OS begins at Chrome kiosk launch and opens home directly. Never add a
+second splash or boot animation. `docs/design/boot.html` is a static identity
+reference only. Preserve the existing system startup; use the supplied seven
+backgrounds as appearance options in the application.
