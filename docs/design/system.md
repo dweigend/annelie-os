@@ -132,8 +132,11 @@ mascots, game overlays or app fullscreen controls above the home navigation.
 120 ms control feedback; 180 ms panel transition; 240 ms scene transition;
 ease `cubic-bezier(0.2, 0, 0, 1)`. Launcher hover may rise 4 px; pressing
 settles 1 px. Never loop decorative animation or shake errors. Honor
-`prefers-reduced-motion` by removing movement and animation. Loading must retain
-a static text explanation when motion is reduced.
+`prefers-reduced-motion` by removing movement and animation. App loading uses
+four blue dots in a horizontal row below the app icon, blinking gently in
+sequence (1.8 s cycle, 300 ms stagger; 18 px dots, 14 px gaps). No visible loading text or progress bar.
+Keep a screen-reader-only status; reduced motion shows four static dots.
+This applies to program loading, not an additional OS startup screen.
 
 Day is the default. Evening changes semantic tokens and the landscape
 wallpaper while keeping layout, app icon identity and control positions stable.
@@ -265,7 +268,7 @@ The clock updates at minute-level frequency, without a ticking second hand.
 | Condition | German copy | Available action / rule |
 | --- | --- | --- |
 | No documents | Platz für deine erste Geschichte. | Neuer Text |
-| App starting | Einen Moment … | Zuhause remains active |
+| App starting | Four blinking dots; no visible text | Window X remains active |
 | App unavailable / timed out | Das Spiel ist gerade nicht bereit. | Noch einmal; Zuhause |
 | App absent | Dieses Spiel ist noch nicht eingerichtet. | Zuhause; no installer shown to child |
 | Saving | Wird gespeichert … | Writing continues |
