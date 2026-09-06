@@ -3,6 +3,31 @@
 Date: 2026-09-06. Status: application release and offline Ubuntu installer built;
 not installed on the target MacBook during this task.
 
+## Remote installation update
+
+SSH became available after the MacBook was switched on. The complete bundle is
+now extracted at `/home/annelie/annelie-os-1.0.0` on the target; its outer SHA-256
+and all internal checksums match. Both packaged production servers were started
+successfully on the actual MacBook using the bundled Linux Node 24.20.0 runtime
+and separate temporary data directories. Both health endpoints passed, and the
+temporary processes were stopped afterward.
+
+The installed browser already includes the earlier password-store startup fix.
+The existing kiosk remains active. Permanent service installation is awaiting
+interactive administrator authentication; `sudo -n true` requires it. Run from
+the administration Mac:
+
+```sh
+ssh -t anneli 'sudo bash /home/annelie/annelie-os-1.0.0/install.sh install'
+```
+
+The screenshots below show the implemented production UI at 1440 × 900 on the
+administration Mac. They are not evidence of completed target installation.
+
+![Desktop with movable application icons and CSS clock](qa/desktop-production.jpg)
+
+![Ringbook editor with typewriter text and slim window controls](qa/editor-production.jpg)
+
 ## Framework decision
 
 Svelte 5 and SvelteKit 2 provide the UI and local HTTP routes in one small
@@ -79,12 +104,13 @@ includes the official Linux runtime verified against nodejs.org's published SHA-
 
 ## Scope and remaining acceptance
 
-The MacBook did not answer the read-only SSH connectivity check in this task.
-No target files, services, Chrome policies, Wi-Fi or boot configuration were changed.
-The Ubuntu installer and Linux binary could not be executed on the target here.
-Their on-device behavior, physical audio, parent unlock and reboot remain explicit
-acceptance work. Do not describe local browser verification as a completed device
-installation or security audit.
+The MacBook initially did not answer SSH, then became reachable after power-on.
+The bundle and temporary verification files have been transferred; both Linux
+servers have passed their health checks on the device. Installed services, Chrome
+policies, Wi-Fi and boot configuration have not been changed yet. Permanent
+installation, physical audio, parent unlock and reboot remain explicit acceptance
+work. Do not describe server health checks or local browser verification as a
+completed device installation or security audit.
 
 The arithmetic game is still a separate future project. The release prepares its
 window/registry integration but does not include game rules or pretend that a
