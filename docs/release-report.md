@@ -27,12 +27,18 @@ at 1440 × 900. The editor was opened through its desktop icon.
 
 ![Installed ringbook editor on the MacBook Air](qa/macbook-editor.png)
 
+Letter-Lerner was opened inside its shell window, entered through its menu and
+closed with the shell X. Its independent server remained active.
+
+![Installed Letter-Lerner inside its shell window](qa/macbook-game.png)
+
 The user requested complete removal of the initial test app. Its service is
 already inactive and disabled; its root-owned HTML/CSS and unit still require
 removal. The reviewed `scripts/remove_kiosk_placeholder.sh` in the device repo
 checks production health, preserves a recovery copy, then removes only those
 obsolete files. It preserves the actual kiosk session and unlock components.
-The MacBook became unreachable again before this cleanup could be transferred.
+The cleanup is now staged at `/home/annelie/remove-kiosk-placeholder.sh`; its
+privileged execution remains pending.
 
 ## Framework decision
 
@@ -112,7 +118,7 @@ includes the official Linux runtime verified against nodejs.org's published SHA-
 
 Installation and production service startup are verified on the target. The new
 desktop and editor are visually verified there. A full reboot after application
-installation, actual game interaction/audio and renewed parent-unlock acceptance
+installation, physical audio, a complete play-through and renewed parent-unlock acceptance
 remain unverified. The SSH connection subsequently timed out again. Do not
 interpret enabled services as a completed cold-boot test.
 
