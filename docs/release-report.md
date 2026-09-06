@@ -1,32 +1,38 @@
 # Annelie OS 1.0 — implementation and handover
 
-Date: 2026-09-06. Status: application release and offline Ubuntu installer built;
-not installed on the target MacBook during this task.
+Date: 2026-09-06. Status: production applications installed and verified running
+on the MacBook Air at 18:23; new desktop and editor visually verified afterward.
 
-## Remote installation update
+## MacBook deployment result
 
-SSH became available after the MacBook was switched on. The complete bundle is
-now extracted at `/home/annelie/annelie-os-1.0.0` on the target; its outer SHA-256
-and all internal checksums match. Both packaged production servers were started
-successfully on the actual MacBook using the bundled Linux Node 24.20.0 runtime
-and separate temporary data directories. Both health endpoints passed, and the
-temporary processes were stopped afterward.
+- Annelie OS `7ca3dd631bae` runs on loopback port 8765.
+- Independent Letter-Lerner `6d426e5e088e` runs on loopback port 3001.
+- Both system services are active and enabled for startup; both health checks pass.
+- The initial `annelie-kiosk-web.service` is stopped and disabled.
+- The existing kiosk address, boot flow, parent unlock and Chrome profile remain.
+- Chrome's allowlist includes both application origins, with audio permitted.
+- Installer rollback: `/var/backups/annelie-apps/change-9YM4DiFL`.
 
-The installed browser already includes the earlier password-store startup fix.
-The existing kiosk remains active. Permanent service installation is awaiting
-interactive administrator authentication; `sudo -n true` requires it. Run from
-the administration Mac:
+Chrome initially continued displaying the old test page after server replacement
+and browser restart. Moving its old HTTP, code and service-worker caches out of
+the active profile, then restarting Chrome, made the new UI visible. The former
+caches are retained in `~/.cache/annelie-deployment/cache-before-release`.
+Local storage and IndexedDB were retained. No single cache layer was isolated
+as the sole cause.
 
-```sh
-ssh -t anneli 'sudo bash /home/annelie/annelie-os-1.0.0/install.sh install'
-```
+The following screenshots were captured directly from the actual MacBook display
+at 1440 × 900. The editor was opened through its desktop icon.
 
-The screenshots below show the implemented production UI at 1440 × 900 on the
-administration Mac. They are not evidence of completed target installation.
+![Installed desktop on the MacBook Air](qa/macbook-desktop.png)
 
-![Desktop with movable application icons and CSS clock](qa/desktop-production.jpg)
+![Installed ringbook editor on the MacBook Air](qa/macbook-editor.png)
 
-![Ringbook editor with typewriter text and slim window controls](qa/editor-production.jpg)
+The user requested complete removal of the initial test app. Its service is
+already inactive and disabled; its root-owned HTML/CSS and unit still require
+removal. The reviewed `scripts/remove_kiosk_placeholder.sh` in the device repo
+checks production health, preserves a recovery copy, then removes only those
+obsolete files. It preserves the actual kiosk session and unlock components.
+The MacBook became unreachable again before this cleanup could be transferred.
 
 ## Framework decision
 
@@ -104,13 +110,11 @@ includes the official Linux runtime verified against nodejs.org's published SHA-
 
 ## Scope and remaining acceptance
 
-The MacBook initially did not answer SSH, then became reachable after power-on.
-The bundle and temporary verification files have been transferred; both Linux
-servers have passed their health checks on the device. Installed services, Chrome
-policies, Wi-Fi and boot configuration have not been changed yet. Permanent
-installation, physical audio, parent unlock and reboot remain explicit acceptance
-work. Do not describe server health checks or local browser verification as a
-completed device installation or security audit.
+Installation and production service startup are verified on the target. The new
+desktop and editor are visually verified there. A full reboot after application
+installation, actual game interaction/audio and renewed parent-unlock acceptance
+remain unverified. The SSH connection subsequently timed out again. Do not
+interpret enabled services as a completed cold-boot test.
 
 The arithmetic game is still a separate future project. The release prepares its
 window/registry integration but does not include game rules or pretend that a
@@ -120,14 +124,14 @@ new parent settings UI was added to the agreed minimal editor.
 
 ## Next steps
 
-1. Make the existing MacBook available via `ssh anneli` and transfer the offline
-   bundle. Run the documented installer in an interactive terminal with sudo.
-2. Restart Chrome after the installation has verified both app servers. The shell
-   keeps port 8765 so the existing browser startup script remains unchanged.
-3. On the actual MacBook, check writing/reopening, audio, app resizing/closure,
-   parent unlock, one planned reboot and renewed SSH access.
-4. Back up the document directory and Chrome profile. Record the installed app
-   revisions and the installer-provided rollback path.
+1. Keep the MacBook powered on, open and connected; run the prepared cleanup for
+   the root-owned initial test website and verify its files/unit are absent.
+2. Check Letter-Lerner interaction/audio, writing/reopening and parent unlock on
+   the actual MacBook.
+3. Perform one planned reboot and confirm automatic startup and renewed SSH access.
+4. Back up the document directory and Chrome profile. Keep the recorded application
+   rollback path; if restoring the former test website, restore its cleanup backup
+   before using the original installer rollback.
 5. Build the arithmetic game in its own repository, then install its independent
    server and add its validated manifest and Chrome allowlist entry. No shell
    rebuild is required for a compatible `arithmetic` application.
