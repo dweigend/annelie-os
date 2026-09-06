@@ -39,7 +39,8 @@ backgrounds as appearance options in the application.
 ## Desktop interaction
 
 No visible desktop heading. Program icons must be freely movable and remember
-positions. External programs open in a window with a slim title bar and an always-visible X.
+positions. The clock uses the same desktop-item movement and preference storage
+as program icons; keep drag logic in `src/lib/client/desktop-items.js`. External programs open in a window with a slim title bar and an always-visible X.
 The text editor is a frameless floating ringbook, with no outer frame or title
 bar. Its upper binding area is a drag grip; a small X sits directly on the paper. Closing must
 return to desktop without browser navigation and preserve editor drafts.

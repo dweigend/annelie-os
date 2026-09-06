@@ -25,6 +25,18 @@ This refinement is not yet part of the installed MacBook revision below.
 
 ![Moved game window with exercise retained](qa/movable-game-window.png)
 
+## Subsequent movable-clock update
+
+The analog clock now shares `initializeDesktopItems` with the program icons.
+Movement, viewport bounds, Alt+arrow controls and normalized position persistence
+have one implementation. The existing preference key and icon entries are retained.
+The clock remains a display widget; only app launchers activate programs.
+
+At 1440 × 900, pointer movement and reload preserved the clock's new position;
+all three existing icon positions remained unchanged. Alt+Left moved the clock
+16 pixels, and the text icon still opened the editor. Lint, Svelte checks and the
+production build pass. This update is prepared locally, not yet installed on the MacBook.
+
 ## MacBook deployment result
 
 - Annelie OS `7ca3dd631bae` runs on loopback port 8765.

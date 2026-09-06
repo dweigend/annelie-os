@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, tick } from "svelte";
 	import { Editor } from "$lib/client/editor.svelte";
-	import { initializeDesktopIcons } from "$lib/client/desktop-icons";
+	import { initializeDesktopItems } from "$lib/client/desktop-items";
 	import {
 		APP_LABELS,
 		type DesktopApp,
@@ -28,6 +28,7 @@
 	];
 	let lastLauncher: HTMLElement;
 	function open(launcher: HTMLButtonElement) {
+		if (!launcher.dataset.app) return;
 		lastLauncher = launcher;
 		active = launcher.dataset.app as DesktopApp;
 	}
@@ -75,18 +76,26 @@
 		: "day"}
 	aria-label="Annelie OS"
 >
-	<div class="aos-desktop-top"><Clock /></div>
-	<nav
+	<div
 		class="aos-desktop-icons"
-		aria-label="Programme"
-		use:initializeDesktopIcons={open}
+		aria-label="Desktop"
+		use:initializeDesktopItems={open}
 	>
+		<button
+			id="desktop-clock"
+			class="os-desktop-clock"
+			type="button"
+			data-desktop-item="clock"
+			aria-label="Uhr verschieben"
+			title="Uhr verschieben · Ziehen oder Alt + Pfeiltasten"><Clock /></button
+		>
 		{#each icons as icon}<button
 				id={`desktop-${icon}`}
 				class="aos-launcher"
 				aria-label={APP_LABELS[icon]}
 				type="button"
 				data-app={icon}
+				data-desktop-item={icon}
 				><img
 					src={`/design/icon-${icon}.png`}
 					alt=""
@@ -95,7 +104,7 @@
 					draggable="false"
 				/></button
 			>{/each}
-	</nav>
+	</div>
 	<BackgroundPicker {scene} {choose} />
 	{#if active}
 		<AppWindow title={APP_LABELS[active]} {close} frameless={active === "text"}>

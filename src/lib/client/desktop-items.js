@@ -1,12 +1,13 @@
 import { geometryRule } from "./geometry";
 
+// Retain the existing preference key so saved icon positions survive this extension.
 const POSITION_KEY = "annelie-os.icon-positions.v1";
 const DRAG_THRESHOLD = 6;
 const KEYBOARD_STEP = 16;
 
 /** Free desktop placement; geometry updates existing app.css rules, never inline styles. */
-export function initializeDesktopIcons(workspace, openProgram) {
-	const launchers = [...workspace.querySelectorAll("[data-app]")];
+export function initializeDesktopItems(workspace, activateItem) {
+	const desktopItems = [...workspace.querySelectorAll("[data-desktop-item]")];
 	const positions = {};
 	let savedPositions = {};
 	try {
@@ -22,76 +23,77 @@ export function initializeDesktopIcons(workspace, openProgram) {
 			/* Placement remains usable for this visit without browser storage. */
 		}
 	}
-	function place(launcher, x, y) {
-		const maxX = Math.max(0, workspace.clientWidth - launcher.offsetWidth);
-		const maxY = Math.max(0, workspace.clientHeight - launcher.offsetHeight);
+	function place(desktopItem, x, y) {
+		const maxX = Math.max(0, workspace.clientWidth - desktopItem.offsetWidth);
+		const maxY = Math.max(0, workspace.clientHeight - desktopItem.offsetHeight);
 		const boundedX = Math.max(0, Math.min(maxX, x));
 		const boundedY = Math.max(0, Math.min(maxY, y));
-		const geometry = geometryRule(`#${launcher.id}`);
+		const geometry = geometryRule(`#${desktopItem.id}`);
 		geometry.setProperty("left", `${boundedX}px`);
 		geometry.setProperty("top", `${boundedY}px`);
-		positions[launcher.dataset.app] = {
+		positions[desktopItem.dataset.desktopItem] = {
 			x: maxX ? boundedX / maxX : 0,
 			y: maxY ? boundedY / maxY : 0,
 		};
 	}
-	function restore(launcher, position) {
+	function restore(desktopItem, position) {
 		place(
-			launcher,
-			position.x * Math.max(0, workspace.clientWidth - launcher.offsetWidth),
-			position.y * Math.max(0, workspace.clientHeight - launcher.offsetHeight),
+			desktopItem,
+			position.x * Math.max(0, workspace.clientWidth - desktopItem.offsetWidth),
+			position.y *
+				Math.max(0, workspace.clientHeight - desktopItem.offsetHeight),
 		);
 	}
-	for (const launcher of launchers) {
-		const saved = savedPositions[launcher.dataset.app];
+	for (const desktopItem of desktopItems) {
+		const saved = savedPositions[desktopItem.dataset.desktopItem];
 		if (Number.isFinite(saved?.x) && Number.isFinite(saved?.y))
-			restore(launcher, saved);
-		else place(launcher, launcher.offsetLeft, launcher.offsetTop);
+			restore(desktopItem, saved);
+		else place(desktopItem, desktopItem.offsetLeft, desktopItem.offsetTop);
 		let drag;
 		let suppressClick = false;
-		launcher.addEventListener("pointerdown", (event) => {
+		desktopItem.addEventListener("pointerdown", (event) => {
 			if (event.button !== 0 || !event.isPrimary) return;
 			suppressClick = false;
 			drag = {
 				id: event.pointerId,
 				x: event.clientX,
 				y: event.clientY,
-				left: launcher.offsetLeft,
-				top: launcher.offsetTop,
+				left: desktopItem.offsetLeft,
+				top: desktopItem.offsetTop,
 				moved: false,
 			};
-			launcher.setPointerCapture(event.pointerId);
+			desktopItem.setPointerCapture(event.pointerId);
 		});
-		launcher.addEventListener("pointermove", (event) => {
+		desktopItem.addEventListener("pointermove", (event) => {
 			if (!drag || event.pointerId !== drag.id) return;
 			const dx = event.clientX - drag.x;
 			const dy = event.clientY - drag.y;
 			if (!drag.moved && Math.hypot(dx, dy) < DRAG_THRESHOLD) return;
 			drag.moved = true;
-			launcher.classList.add("is-dragging");
-			place(launcher, drag.left + dx, drag.top + dy);
+			desktopItem.classList.add("is-dragging");
+			place(desktopItem, drag.left + dx, drag.top + dy);
 		});
-		launcher.addEventListener("pointerup", (event) => {
+		desktopItem.addEventListener("pointerup", (event) => {
 			if (!drag || event.pointerId !== drag.id) return;
 			suppressClick = drag.moved;
 			if (drag.moved) save();
 			drag = undefined;
-			launcher.classList.remove("is-dragging");
+			desktopItem.classList.remove("is-dragging");
 		});
-		launcher.addEventListener("lostpointercapture", () => {
-			if (drag) place(launcher, drag.left, drag.top);
+		desktopItem.addEventListener("lostpointercapture", () => {
+			if (drag) place(desktopItem, drag.left, drag.top);
 			drag = undefined;
-			launcher.classList.remove("is-dragging");
+			desktopItem.classList.remove("is-dragging");
 		});
-		launcher.addEventListener("click", (event) => {
+		desktopItem.addEventListener("click", (event) => {
 			if (suppressClick && event.detail !== 0) {
 				suppressClick = false;
 				event.preventDefault();
 				return;
 			}
-			openProgram(launcher);
+			activateItem(desktopItem);
 		});
-		launcher.addEventListener("keydown", (event) => {
+		desktopItem.addEventListener("keydown", (event) => {
 			const direction = {
 				ArrowLeft: [-1, 0],
 				ArrowRight: [1, 0],
@@ -101,16 +103,16 @@ export function initializeDesktopIcons(workspace, openProgram) {
 			if (!event.altKey || !direction) return;
 			event.preventDefault();
 			place(
-				launcher,
-				launcher.offsetLeft + direction[0] * KEYBOARD_STEP,
-				launcher.offsetTop + direction[1] * KEYBOARD_STEP,
+				desktopItem,
+				desktopItem.offsetLeft + direction[0] * KEYBOARD_STEP,
+				desktopItem.offsetTop + direction[1] * KEYBOARD_STEP,
 			);
 			save();
 		});
 	}
 	const fitViewport = () => {
-		for (const launcher of launchers)
-			restore(launcher, positions[launcher.dataset.app]);
+		for (const desktopItem of desktopItems)
+			restore(desktopItem, positions[desktopItem.dataset.desktopItem]);
 	};
 	window.addEventListener("resize", fitViewport);
 	return {

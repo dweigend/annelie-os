@@ -1252,8 +1252,11 @@ img {
 	inset: 24px 24px 80px;
 }
 .aos-desktop-icons .aos-launcher {
-	position: absolute;
 	height: 168px;
+}
+.aos-desktop-icons .aos-launcher,
+.aos-desktop-icons [data-desktop-item] {
+	position: absolute;
 	touch-action: none;
 	user-select: none;
 	cursor: grab;
@@ -1261,13 +1264,30 @@ img {
 .aos-desktop-icons .aos-launcher img {
 	pointer-events: none;
 }
-.aos-desktop-icons .aos-launcher.is-dragging {
+.aos-desktop-icons .aos-launcher.is-dragging,
+.aos-desktop-icons [data-desktop-item].is-dragging {
 	cursor: grabbing;
 	z-index: 2;
 }
 .aos-desktop-icons .aos-launcher:hover img,
 .aos-desktop-icons .aos-launcher:active img {
 	transform: none;
+}
+.os-desktop-clock {
+	width: 200px;
+	height: 200px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+}
+.os-desktop-clock .aos-clock {
+	display: block;
+	pointer-events: none;
+}
+#desktop-clock {
+	left: calc(100% - 256px);
+	top: 40px;
 }
 #desktop-text {
 	left: calc(50% - 300px);
