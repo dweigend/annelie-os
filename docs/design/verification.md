@@ -40,3 +40,11 @@ typewriter/ring-notebook direction. The task **Kiosk-Modus absichern** could
 not be read through the task tool during this update; local device-operation
 documentation was available. No additional hidden queue entries were exposed
 by the available tools, so this update handles the visible UI instructions.
+
+## Whale startup update
+
+Ten supplied originals are preserved. The reusable whale has actual alpha;
+seven backgrounds are separate 1672 × 941 images with no baked wordmark or
+progress UI. The day/night home backgrounds use the new family. The preview
+selects only allowlisted scenes and provides indeterminate activity, not a
+simulated boot percentage. Real Ubuntu boot and readiness remain unimplemented.

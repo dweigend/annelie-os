@@ -1,7 +1,7 @@
 # Assets and provenance
 
-All paths below are relative to the repository root. The eight supplied source
-images were preserved unchanged. New artwork was made with the built-in GPT
+All paths below are relative to the repository root. The eight initial source
+images and ten startup references were preserved unchanged. New artwork was made with the built-in GPT
 Image tool using those images as explicit references. No source screenshot was
 used as a production UI background or cropped into a sprite.
 
@@ -16,7 +16,7 @@ used as a production UI background or cropped into a sprite.
 | 5 | `docs/design/references/05-app-icon-family.png` | Sculpted app icon family |
 | 6 | `docs/design/references/06-clock-study.png` | Clock material, colors and geometry study |
 | 7 | `docs/design/references/07-cat-character.png` | Character identity and poses |
-| 8 | `docs/design/references/08-notebook-editor.png` | Authoritative minimal ring-bound editor |
+| 8 | `docs/design/references/08-notebook-editor.png` | Historical editor reference; later simplified to white |
 
 Text inside supplied pictures is reference content, not an independent feature
 request. Preserve these files as evidence; later corrections get new filenames.
@@ -25,13 +25,19 @@ request. Preserve these files as evidence; later corrections get new filenames.
 
 | File in `static/design/` | Intended use | Reference / prompt |
 | --- | --- | --- |
-| `wallpaper-day.png` | Full-bleed lake desktop, day | Source 4 / [prompt](prompts/wallpaper-day.txt) |
-| `wallpaper-evening.png` | Matching blue-hour desktop | Day master / [prompt](prompts/wallpaper-evening.txt) |
+| `wallpaper-day.png` | Historical day landscape | Source 4 / [prompt](prompts/wallpaper-day.txt) |
+| `wallpaper-evening.png` | Historical evening landscape | Day master / [prompt](prompts/wallpaper-evening.txt) |
 | `icon-text.png` | Texten launcher, blue typewriter | Source 5 / [prompt](prompts/icon-text.txt) |
 | `icon-math.png` | Rechnen launcher, counting discs | Source 5 and text icon / [prompt](prompts/icon-math.txt) |
 | `icon-letters.png` | Schreibspiel launcher, ABC | Source 5 and text icon / [prompt](prompts/icon-letters.txt) |
-| `cat-peek.png` | Optional quiet home companion | Source 7 / [prompt](prompts/cat-peek.txt) |
-| `notebook-paper.png` | Blank ring-bound writing surface | Source 8 / [prompt](prompts/notebook-paper.txt) |
+| `cat-peek.png` | Unused character reference | Source 7 / [prompt](prompts/cat-peek.txt) |
+| `notebook-paper.png` | Unused historical notebook surface | Source 8 / [prompt](prompts/notebook-paper.txt) |
+
+The official whale and seven current startup backgrounds are documented in
+[startup.md](startup.md), with every source and prompt mapped in
+[boot-sources.json](../../design/boot-sources.json). The current home uses
+`background-day.png` and `background-night.png`; the older wallpapers are
+retained for history. The standalone whale master has genuine transparency.
 
 Use original aspect ratios. Backgrounds use cover with bottom-center anchoring;
 allow the outer plants to crop, not the important interface. Place real text on
@@ -42,7 +48,7 @@ identity thumbnails, but utility controls use Lucide instead.
 The PNG icons and cat have actual alpha channels. A black preview background
 does not imply a baked black rectangle. Soft edge shadows are intentional;
 check them on both day/evening surfaces. The cat has a broad soft shadow and
-must remain small at the edge of the scene. Do not use it over writing paper.
+is retained only as a source asset; the cat is not displayed in the current UI.
 
 The day and evening backgrounds are companion illustrations, not a perfectly
 registered animation pair. Do not crossfade them as if the geometry were

@@ -51,3 +51,10 @@ Canonical styles and tokens live in `src/app.css`. After editing tokens, run
 
 Application type, build and persistence-test commands will be added with the
 production implementation.
+
+## Startup identity
+
+The surfacing whale is the official logo. Open
+[the seven startup motifs](docs/design/startup.html) or
+[the startup preview](docs/design/boot.html) through the local preview server.
+See [startup design rules](docs/design/startup.md) for assets and implementation.

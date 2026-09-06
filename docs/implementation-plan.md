@@ -176,6 +176,12 @@ states without displaying URLs or stack traces. An absent game must not prevent
 writing. Match the selected mockups at the old MacBook Air design viewport of
 1440 x 900. Mobile layouts and mobile checks are outside scope. Use real semantics, visible focus and at least 48 px controls.
 
+Use the official whale logo and supplied startup backgrounds from
+`docs/design/startup.md`. Show an indeterminate activity signal only while the
+shell and document store are starting; enter home when ready. External game
+failures must not block shell startup. Do not add fake progress, forced welcome
+clicks or a timed splash delay. Coordinate the real Ubuntu boot splash separately.
+
 ### 4. Complete the editor
 
 Follow the latest editor feedback: a blank white page, typewriter text and one

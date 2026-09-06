@@ -1,0 +1,53 @@
+{
+	"method": "Built-in GPT Image edits; source originals retained unchanged.",
+	"assets": [
+		{
+			"name": "logo-whale",
+			"path": "static/design/logo-whale.png",
+			"prompt": "docs/design/prompts/logo-whale.txt",
+			"reference": "docs/design/references/boot/01-day.png"
+		},
+		{
+			"name": "background-day",
+			"path": "static/design/background-day.png",
+			"prompt": "docs/design/prompts/background-day.txt",
+			"reference": "docs/design/references/boot/01-day.png"
+		},
+		{
+			"name": "background-night",
+			"path": "static/design/background-night.png",
+			"prompt": "docs/design/prompts/background-night.txt",
+			"reference": "docs/design/references/boot/03-night.png"
+		},
+		{
+			"name": "background-cream",
+			"path": "static/design/background-cream.png",
+			"prompt": "docs/design/prompts/background-cream.txt",
+			"reference": "docs/design/references/boot/04-cream.png"
+		},
+		{
+			"name": "background-sunrise",
+			"path": "static/design/background-sunrise.png",
+			"prompt": "docs/design/prompts/background-sunrise.txt",
+			"reference": "docs/design/references/boot/02-sunrise.png"
+		},
+		{
+			"name": "background-muted-night",
+			"path": "static/design/background-muted-night.png",
+			"prompt": "docs/design/prompts/background-muted-night.txt",
+			"reference": "docs/design/references/boot/05-muted-night.png"
+		},
+		{
+			"name": "background-evening",
+			"path": "static/design/background-evening.png",
+			"prompt": "docs/design/prompts/background-evening.txt",
+			"reference": "docs/design/references/boot/07-evening.png"
+		},
+		{
+			"name": "background-space",
+			"path": "static/design/background-space.png",
+			"prompt": "docs/design/prompts/background-space.txt",
+			"reference": "docs/design/references/boot/10-space.png"
+		}
+	]
+}

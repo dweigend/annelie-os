@@ -1,6 +1,6 @@
 # Local implementation agent brief
 
-David supplied eight images as the visual direction. Use the consolidated v1
+David supplied eight initial images and ten startup references as the visual direction. Use the consolidated v1
 system in `docs/design/system.md`, `src/app.css`, `design/tokens.json`, and the
 interactive `docs/design/catalogue.html`. No application implementation agent
 has been launched during design-system preparation.
@@ -24,6 +24,12 @@ home, editor, app frame and error states. Reuse the supplied local font, artwork
 semantic tokens and component patterns. Treat the catalogue as a design specimen,
 not finished application code. Confirm editor scope proposals still left open;
 formatting buttons in source images alone do not approve a rich-text editor.
+
+Use the official surfacing-whale identity and startup backgrounds described in
+`docs/design/startup.md`. Keep the logo, background, live wordmark and loading
+state separate. Leave startup on actual shell/storage readiness, without waiting
+for optional games or inserting a welcome click. Ubuntu splash integration
+remains the device project's responsibility.
 
 Prove integration with the real Letter-Lerner on a separate loopback port early.
 Keep game code and game-specific integration changes in its own repository;

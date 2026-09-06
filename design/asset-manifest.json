@@ -61,6 +61,71 @@
 			"bytes": 1834606,
 			"sha256": "f251f6cfba78622206efd3e339e7236b42203f47ac70507583e6ffdfb3d6b7ec",
 			"mode": "RGB"
+		},
+		{
+			"path": "static/design/logo-whale.png",
+			"width": 1672,
+			"height": 941,
+			"bytes": 891173,
+			"sha256": "1fafa37304337a3ccde3a5f65dbafd3cda2fef394f152e64dfb3896da6545e74",
+			"mode": "RGBA",
+			"alphaRange": [0, 255]
+		},
+		{
+			"path": "static/design/background-day.png",
+			"width": 1672,
+			"height": 941,
+			"bytes": 1289486,
+			"sha256": "d36bd8cf955a81fa5418e5f218c4856b533159341f630f2061f18f28a2bc4b03",
+			"mode": "RGB"
+		},
+		{
+			"path": "static/design/background-night.png",
+			"width": 1672,
+			"height": 941,
+			"bytes": 1783305,
+			"sha256": "76387c438d54b3f122dd1033a79eb22941c5f4e92bc673d79bfc2cfd1129aed1",
+			"mode": "RGB"
+		},
+		{
+			"path": "static/design/background-cream.png",
+			"width": 1672,
+			"height": 941,
+			"bytes": 1162128,
+			"sha256": "d940bf02ee76e541e9decb3cea895b67804e09d74b7981e364d672d9619955c3",
+			"mode": "RGB"
+		},
+		{
+			"path": "static/design/background-sunrise.png",
+			"width": 1672,
+			"height": 941,
+			"bytes": 1304276,
+			"sha256": "32d15a9f93cb6ec23c2e067462b543c0fe905223c108eeb4ad2cb7772ac93f84",
+			"mode": "RGB"
+		},
+		{
+			"path": "static/design/background-muted-night.png",
+			"width": 1672,
+			"height": 941,
+			"bytes": 1430742,
+			"sha256": "8246fb875673f6f731ac3621172f80f36cf63785a3331f3e6cf5d0685890f761",
+			"mode": "RGB"
+		},
+		{
+			"path": "static/design/background-evening.png",
+			"width": 1672,
+			"height": 941,
+			"bytes": 1540353,
+			"sha256": "d5d0d462fc49e90bb694a9c5c02802126915b01d154fd5e101d85cec1a4fc302",
+			"mode": "RGB"
+		},
+		{
+			"path": "static/design/background-space.png",
+			"width": 1672,
+			"height": 941,
+			"bytes": 1652812,
+			"sha256": "34b6eba42dc18800e0c1052d1afa5ac1140b7f707c048f5b39242d02a3e69b94",
+			"mode": "RGB"
 		}
 	]
 }

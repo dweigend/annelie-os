@@ -13,6 +13,10 @@ spacing, controls, a shared window, editor patterns, recovery states and app
 integration. The exact v1 refinements are the result of the design task and
 remain reviewable; do not describe them as separately user-approved details.
 
+The official identity is now the surfacing whale. The ten additional startup
+references define seven background motifs, including the current day/night
+home landscapes. See [startup rules](startup.md) and [the gallery](startup.html).
+
 Start here:
 
 - [Interactive catalogue](catalogue.html)

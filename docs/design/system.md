@@ -146,6 +146,15 @@ No UI sounds are required for the shell. Game audio follows explicit user
 activation and the app's volume preference. Never use sound alone for feedback.
 The mascot does not speak or interrupt writing.
 
+## Official identity and startup
+
+The surfacing whale is the official logo. Use the separate transparent master
+and the seven supplied-background derivatives defined in [startup.md](startup.md).
+Day/night home scenes now use that same landscape family. Startup has no window
+chrome: just the whale, Annelie OS wordmark and a small indeterminate activity
+indicator. The implementation must use real readiness, with no artificial delay.
+See [all startup motifs](startup.html) and the preserved originals.
+
 ## Layout and navigation
 
 ### Home
