@@ -12,6 +12,18 @@ kiosk. German interface, local assets, independent applications.
 [Design system](docs/design/README.md) · [Screenshot gallery](docs/screenshots/README.md) ·
 [App contract](docs/app-contract.md) · [Install on Ubuntu](https://github.com/dweigend/annelies_computer/blob/main/docs/annelie-os-installation.md)
 
+## A personal project, with room to grow 🐳
+
+Right now, this is a very personal project: I'm building it for Annelie's
+computer, around the things she enjoys and the way she uses it. Some choices
+are specific to her MacBook Air, and that's where this little adventure starts.
+
+I plan to keep working on it, add new programs and features, and gradually make
+it more general so it can run on other devices too. There's plenty left to explore!
+
+Fancy forking it and building your own version? Please do — I'd love to see what
+you make. Give it your own personality and make it a home for someone else's ideas.
+
 ## A desktop made of familiar things
 
 - **Move the clock and icons.** Drag them anywhere within the desktop; positions
