@@ -1,0 +1,4 @@
+[
+  {"id":"letter-lerner","label":"Schreibspiel","origin":"http://127.0.0.1:3001","entryPath":"/?embedded=1","healthPath":"/healthz","bridgeVersion":1},
+  {"id":"arithmetic","label":"Rechnen","origin":"http://127.0.0.1:3002","entryPath":"/?embedded=1","healthPath":"/healthz","bridgeVersion":1}
+]

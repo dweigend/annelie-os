@@ -17,7 +17,12 @@ The official identity is now the surfacing whale. The ten additional startup
 references define seven selectable home backgrounds. OS startup is already
 configured; the kiosk opens home directly without a second splash. See [startup rules](startup.md) and [the gallery](startup.html).
 
+Current implementation: movable icons and clock share one placement module;
+normal windows move through their title bar and the notebook through its binding.
+
 Start here:
+
+- [Current visual boards](overview.html) and [rendered screenshots](../screenshots/README.md)
 
 - [Interactive catalogue](catalogue.html)
 - [Complete specification](system.md)

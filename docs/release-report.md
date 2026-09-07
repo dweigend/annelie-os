@@ -1,6 +1,13 @@
 # Annelie OS 1.0 — implementation and handover
 
-Date: 2026-09-06. Status: production applications installed and verified running
+Current status (2026-09-07): SSH confirms Annelie OS `8271e56340c2`,
+Letter-Lerner `6d426e5e088e`, and Rechnen `777d0be85f1b` installed with all three
+services active. The clock and window updates are deployed and the former test
+site is removed. See the [current README](../README.md) and
+[new screenshot gallery](screenshots/README.md). Historical stage-by-stage notes
+below retain the status at the time they were written.
+
+Original report date: 2026-09-06. Status: production applications installed and verified running
 on the MacBook Air at 18:23; new desktop and editor visually verified afterward.
 
 The user subsequently confirmed that everything works and the correct version

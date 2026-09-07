@@ -1,85 +1,161 @@
 # Annelie OS
 
-A minimal Svelte 5 / SvelteKit desktop and ring-notebook text editor for the
-existing Ubuntu Chrome kiosk on a MacBook Air. German interface, English code.
+**A quiet little desktop for writing, counting and discovering letters.**
 
-Version 1.0 provides movable desktop icons, seven local wallpapers, a CSS-depth
-analog clock, resizable application windows with an independent X, and a plain
-text editor with autosave and recovery. Letter-Lerner runs in its own repository
-and server inside the shell's window. The arithmetic game remains a separate
-future project; its icon currently shows the minimal retry state.
+Annelie OS turns an older MacBook Air into a familiar place to learn: an
+illustrated landscape, three tactile program icons and a real working notebook.
+Built with **Svelte 5 + SvelteKit**, running locally in the existing Ubuntu Chrome
+kiosk. German interface, local assets, independent applications.
+
+![Annelie OS desktop with three movable program icons and an analog clock](docs/screenshots/desktop-day.jpg)
+
+[Design system](docs/design/README.md) · [Screenshot gallery](docs/screenshots/README.md) ·
+[App contract](docs/app-contract.md) · [Install on Ubuntu](https://github.com/dweigend/annelies_computer/blob/main/docs/annelie-os-installation.md)
+
+## A desktop made of familiar things
+
+- **Move the clock and icons.** Drag them anywhere within the desktop; positions
+  survive reloads. Both use the same placement and persistence implementation.
+- **Open, move, resize, close.** Games run inside a slim shell-owned window.
+  The X always returns home, including while an application is loading.
+- **Choose a landscape.** Seven backgrounds, from daylight to outer space,
+  are bundled locally. No extra splash screen interrupts kiosk startup.
+- **Write on paper.** The editor is a frameless ringbook with typewriter text,
+  one document control and automatic saving. Drag its binding to move it.
+
+## Texten — a floating ringbook
+
+![Frameless notebook with ring binding, Courier Prime text and minimal controls](docs/screenshots/notebook.jpg)
+
+Start on a blank page. Previous texts live behind the small document icon;
+the first line becomes the document name. The editor saves locally, retains a
+last-good copy and keeps a browser draft until the server acknowledges the edit.
+Conflicting edits preserve both versions. There is no permanent toolbar, separate
+title field or rich-text formatting.
+
+## Three applications, one home
+
+| Texten | Schreibspiel | Rechnen |
+| --- | --- | --- |
+| Built into this repository | [Letter-Lerner](https://github.com/dweigend/letter-lerner) | [Arithmetic Trainer](https://github.com/dweigend/arithmetic-trainer)¹ |
+| Plain-text writing and recovery | Writing, puzzle and reading practice | Addition, subtraction, points and number-line aids |
+| Shell process | Independent process on port 3001 | Independent process on port 3002 |
+
+| Schreibspiel | Rechnen |
+| --- | --- |
+| ![Letter-Lerner writing practice inside its OS window](docs/screenshots/letter-lerner.jpg) | ![Arithmetic practice with points beneath the operands](docs/screenshots/arithmetic.jpg) |
+
+Each learning app keeps its own repository, server and persistent data. Annelie OS
+loads it in an iframe and owns the surrounding window. A small manifest, health
+endpoint and validated ready message make the applications feel like one system.
+Closing a window leaves its server running. An unavailable game cannot block writing.
+
+¹ Arithmetic Trainer is currently a private repository; access is required.
+
+## The visual system
+
+The surfacing whale is the official identity. Illustrated lakes and hills give
+the desktop its atmosphere; warm surfaces, clear controls and local typography
+keep the working areas calm. The ring binding is the editor's decorative exception.
+
+![Design foundations: whale identity, palette, tactile icons, typography and controls](docs/screenshots/design-foundations.jpg)
+
+![Seven bundled desktop landscapes](docs/screenshots/design-landscapes.jpg)
+
+The [visual boards](docs/design/overview.html) render the actual local assets and
+shared tokens. [src/app.css](src/app.css) is the canonical stylesheet;
+[design/tokens.json](design/tokens.json) exports the design contract. Nunito is
+used for the interface and Courier Prime for writing. Source artwork, font
+licenses and provenance are documented in [assets](docs/design/assets.md).
+
+To view the boards locally:
+
+```sh
+python3 -m http.server 4174 --bind 127.0.0.1
+# Open http://127.0.0.1:4174/docs/design/overview.html
+```
+
+The earlier [interactive catalogue](docs/design/catalogue.html) remains a historical
+design reference. The running application is authoritative for current behavior.
 
 ## Run locally
 
-Prerequisites: Bun 1.3.14 and Node 24 LTS. All dependencies are pinned in the lockfile.
+Requires Bun 1.3.14 and Node 24 LTS. Dependencies are pinned in the lockfile.
 
 ```sh
 bun install --frozen-lockfile
 bun run dev
+# Open http://127.0.0.1:3000
 ```
 
-Open `http://127.0.0.1:3000`. For the production server:
+For a production build:
 
 ```sh
 bun run build
 bun run start
 ```
 
-Letter-Lerner is optional for writing. Run its Annelie OS integration release
-separately on port 3001 with `ANNELIE_OS_ORIGIN=http://127.0.0.1:3000`,
-`LETTER_LERNER_KIOSK=1` and `OPENAI_AI_DISABLED=true`. Its own README documents
-catalogue initialization and asset requirements. See [the app contract](docs/app-contract.md).
+Writing works without either game. To run all three applications, start each game
+separately and set its `ANNELIE_OS_ORIGIN` to `http://127.0.0.1:3000`. Letter-Lerner
+also uses `LETTER_LERNER_KIOSK=1` and `OPENAI_AI_DISABLED=true`; follow its repository's
+catalogue and asset setup. Point the shell's `ANNELIE_OS_APPS_FILE` to a JSON array
+using the [example registry](docs/apps.example.json). Without that setting, only
+Letter-Lerner is registered by default.
 
-## Install on the MacBook
+## Install on the MacBook Air
 
-Use the complete offline Linux x64 bundle and installer maintained in the
-[device repository](https://github.com/dweigend/annelies_computer/blob/main/docs/annelie-os-installation.md).
-The installed shell keeps the existing kiosk address `http://127.0.0.1:8765/`.
-Letter-Lerner stays at port 3001. No second splash screen or OS reinstall.
+The [device repository](https://github.com/dweigend/annelies_computer) owns Ubuntu
+services, offline packaging, Chrome policies, SSH administration and rollback.
+The installed shell uses `http://127.0.0.1:8765/`; learning apps use ports 3001 and
+3002. Application data lives outside replaceable release directories.
 
-[Release report](docs/release-report.md) records completed work, verification
-and remaining on-device acceptance. A local preview is not a deployment.
+On **2026-09-07**, SSH confirmed these installed revisions and active services:
 
-## Structure
-
-| Directory | Responsibility |
+| Application | Installed revision |
 | --- | --- |
-| `src/lib/components` | Desktop controls, notebook and application window |
-| `src/lib/client` | Editor autosave/recovery and pointer geometry |
+| Annelie OS | `8271e56340c2` |
+| Letter-Lerner | `6d426e5e088e` |
+| Rechnen | `777d0be85f1b` |
+
+Use the [shell installation guide](https://github.com/dweigend/annelies_computer/blob/main/docs/annelie-os-installation.md)
+and [arithmetic installation guide](https://github.com/dweigend/annelies_computer/blob/main/docs/arithmetic-installation.md).
+A Git push does not deploy to Ubuntu. Root-owned installation changes require
+administrator authentication; the existing boot sequence and parent unlock remain.
+
+## Architecture
+
+| Location | Responsibility |
+| --- | --- |
+| `src/lib/components` | Clock, notebook, application window and controls |
+| `src/lib/client` | Shared desktop movement, window geometry, autosave and recovery |
 | `src/lib/server` | Atomic document persistence and validated app registry |
-| `src/lib/shared` | Small shared records and validation rules |
-| `src/routes/api` | Local document and application endpoints |
-| `src/app.css` | Canonical design system and all styling |
-| `static/design` | Local illustrations, masks and licensed fonts |
-| `tests` | Persistence, recovery, concurrent editing and registry boundaries |
-| `docs/design` | Original interactive design specimens |
+| `src/lib/shared` | Shared types and validation rules |
+| `src/routes/api` | Document and application endpoints |
+| `src/app.css` | Product tokens, components and documentation-board styles |
+| `static/design` | Local artwork, icons and licensed fonts |
+| `docs/design` | Specification, visual boards and historical references |
+| `tests` | Persistence, recovery, concurrent updates and registry boundaries |
 
-SvelteKit uses adapter-node. The server has no external runtime dependencies;
-only Node's built-in filesystem and HTTP facilities are needed. The approved
-plain-text interaction uses a native textarea. There is no rich-text editor,
-plugin SDK, window-manager library, cloud storage or game source vendoring.
+SvelteKit's Node adapter produces the server. Native textarea, dialog and pointer
+events keep dependencies small. There is no cloud account, plugin SDK or vendored
+game source. The target is the MacBook Air at **1440 × 900**, with keyboard and
+trackpad; mobile is outside the product scope.
 
-## Storage and configuration
+## Data and configuration
 
-`ANNELIE_OS_DATA_DIR` selects the external data root; the default is
-`$XDG_DATA_HOME/annelie-os` or `~/.local/share/annelie-os`. Documents are UUID-named
-JSON records in `documents/`, with revisions, timestamps and a last-good `.bak`.
-Writes are serialized per document, synced and atomically replaced. Damaged
-primary files are retained before recovery overwrites them. Run one server per
-data directory; process-level multiwriter coordination is outside this release.
+| Variable | Purpose |
+| --- | --- |
+| `ANNELIE_OS_DATA_DIR` | Document root; defaults to `$XDG_DATA_HOME/annelie-os` or `~/.local/share/annelie-os` |
+| `ANNELIE_OS_APPS_FILE` | Path to the independent app manifest array |
+| `HOST`, `PORT`, `ORIGIN` | Production listener and stable application origin |
 
-A browser draft journal protects edits before server acknowledgement. Conflicting
-edits create another document instead of overwriting either version. Preserve
-both server data and the browser profile when backing up. A saved text's first
-line becomes its list label; there is no separate title field. No deletion,
-printing, import/export or formatting tools are included in this version.
+Documents are UUID-named JSON files with revisions and `.bak` recovery copies.
+Writes are serialized per document, synced and atomically replaced. Run one server
+per data directory. Preserve both server data and the browser profile in backups:
+learning progress, desktop placement and pending drafts can be browser-owned.
+A last-good copy is recovery support, not protection against disk failure.
 
-`ANNELIE_OS_APPS_FILE` selects an external JSON manifest array. With no file,
-Letter-Lerner at 127.0.0.1:3001 is the default. Missing games cannot block writing.
-`HOST`, `PORT`, `ORIGIN` configure the production listener. Use a stable origin:
-browser drafts, desktop preferences and game progress are origin-bound.
-
-## Checks and release archive
+## Checks and packaging
 
 ```sh
 bun run lint
@@ -90,24 +166,11 @@ bun run build
 bash scripts/package-release.sh
 ```
 
-The app archive contains the production output, minimal package metadata and
-startup script. Device services, the pinned Linux Node runtime and repeatable
-installation/rollback live in the separate device repository.
+Commit tracked changes before packaging. The archive contains the production
+output and startup script; the device repository supplies the Linux runtime,
+services and installation procedure. See the [release report](docs/release-report.md)
+for detailed verification and historical deployment notes.
 
-## Design references
-
-The surfacing whale is the official identity. Styles and local assets reuse
-[the selected design system](docs/design/system.md). The editor's ring binding
-is the explicit decorative exception. The target viewport is 1440 × 900;
-mobile product work is outside scope.
-
-To inspect the original static catalogue:
-
-```sh
-python3 -m http.server 4174 --bind 127.0.0.1
-```
-
-Open `http://127.0.0.1:4174/docs/design/catalogue.html`. These older specimens
-retain in-memory text only; use the actual application for persistent writing.
-The production stylesheet build rebases static asset paths while preserving
-one canonical CSS source for both surfaces.
+Screenshots above were captured on 2026-09-07 from local production builds at
+1440 × 900 using demonstration text and isolated app data. They are real UI
+captures, not proposed mockups or photographs of the MacBook.
